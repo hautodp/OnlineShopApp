@@ -1,0 +1,315 @@
+<div class="navbar-sticky bg-light">
+  <div class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="#" style="min-width: 7rem;">
+        <img width="180" height="60" src="../../assets/img/logo.png" alt="Home Shoppe">
+      </a>
+      <a class="navbar-brand d-sm-none mr-2" href="#" style="min-width: 4.625rem;">
+        <img width="100" height="35" src="../../assets/img/logo.png" alt="Home Shoppe">
+      </a>
+      <div class="input-group-overlay d-none d-lg-flex mx-4 w-75">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" style="width:500px">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit"><span><i class="fas fa-search"></i></span></button>
+        </form>
+      </div>
+      <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="openModalDialog()">Đăng nhập <strong>|</strong> Đăng ký</button>
+        </form>
+        <div class="dropdown" *ngIf="loggedIn()">
+          <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
+            <div class="navbar-tool-icon-box">
+              <i class="navbar-tool-icon fas fa-user"></i>
+            </div>
+            <div class="navbar-tool-text ml-n3">
+              <small>Hello, Sign in</small>My Account
+            </div>
+          </a>
+            <div class="dropdown-content">
+              <a href="#">Tài khoản của tôi</a>
+              <a href="#">Đơn mua</a>
+              <a (click)="logOut()" style="color:#00bfa5; cursor: pointer;">Đăng xuất</a>
+            </div>
+        </div>
+
+        <div class="navbar-tool ml-3">
+          <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="shop-cart.html">
+            <span class="navbar-tool-label">4</span>
+            <i class="navbar-tool-icon fas fa-shopping-cart"></i>
+          </a>
+          <a class="navbar-tool-text" href="shop-cart.html"><small>My Cart</small>$265.00
+          </a>
+          <!-- Cart dropdown-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+    <div class="container">
+      <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+        <!-- Search-->
+        <div class="input-group-overlay d-lg-none my-3">
+          <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="czi-search"></i></span></div>
+          <input class="form-control prepended-form-control" type="text" placeholder="Search for products">
+        </div>
+        <!-- Departments menu-->
+        <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i class="czi-view-grid mr-2"></i>Departments</a>
+            <div class="dropdown-menu px-2 pl-0 pb-4">
+              <div class="d-flex flex-wrap flex-md-nowrap">
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/01.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Clothing</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Women's clothing</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Men's clothing</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's clothing</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/02.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Shoes</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Women's shoes</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Men's shoes</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's shoes</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/03.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Gadgets</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Smartphones &amp; Tablets</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Wearable gadgets</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">E-book readers</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap flex-md-nowrap">
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/04.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Furniture &amp; Decor</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Home furniture</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Office furniture</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Lighting and decoration</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/05.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Accessories</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Hats</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Sunglasses</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Bags</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column pt-4 px-3">
+                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/06.jpg" alt="Shoes"></a>
+                    <h6 class="font-size-base mb-2">Entertainment</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's toys</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Video games</a></li>
+                      <li class="widget-list-item"><a class="widget-list-link" href="#">Outdoor / Camping</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- Primary menu-->
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v1.html"><span class="d-block text-heading">Fashion Store v.1</span><small class="d-block text-muted">Classic shop layout</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-fashion-store-v1.html" style="width: 250px;"><img src="img/home/preview/th01.jpg" alt="Fashion Store v.1"></a></div>
+              </li>
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v2.html"><span class="d-block text-heading">Fashion Store v.2</span><small class="d-block text-muted">Slider + Featured categories</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-fashion-store-v2.html" style="width: 250px;"><img src="img/home/preview/th02.jpg" alt="Fashion Store v.2"></a></div>
+              </li>
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-electronics-store.html"><span class="d-block text-heading">Electronics Store</span><small class="d-block text-muted">Slider + Promo banners</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-electronics-store.html" style="width: 250px;"><img src="img/home/preview/th03.jpg" alt="Electronics Store"></a></div>
+              </li>
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-marketplace.html"><span class="d-block text-heading">Marketplace</span><small class="d-block text-muted">Multi-vendor, digital goods</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-marketplace.html" style="width: 250px;"><img src="img/home/preview/th04.jpg" alt="Marketplace"></a></div>
+              </li>
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-single-store.html"><span class="d-block text-heading">Single Product Store</span><small class="d-block text-muted">Single product / mono brand</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-single-store.html" style="width: 250px;"><img src="img/home/preview/th05.jpg" alt="Single Product / Brand Store"></a></div>
+              </li>
+              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2" href="home-grocery-store.html"><span class="d-block text-heading">Grocery Store</span><small class="d-block text-muted">Full width + Side menu</small></a>
+                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-grocery-store.html" style="width: 250px;"><img src="img/home/preview/th06.jpg" alt="Grocery Store"></a></div>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Shop</a>
+            <div class="dropdown-menu p-0">
+              <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                <div class="mega-dropdown-column py-4 px-3">
+                  <div class="widget widget-links mb-3">
+                    <h6 class="font-size-base mb-3">Shop layouts</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ls.html">Shop Grid - Left Sidebar</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-rs.html">Shop Grid - Right Sidebar</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ft.html">Shop Grid - Filters on Top</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ls.html">Shop List - Left Sidebar</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-rs.html">Shop List - Right Sidebar</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ft.html">Shop List - Filters on Top</a></li>
+                    </ul>
+                  </div>
+                  <div class="widget widget-links">
+                    <h6 class="font-size-base mb-3">Marketplace</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-category.html">Category Page</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-single.html">Single Item Page</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-vendor.html">Vendor Page</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-cart.html">Cart</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-checkout.html">Checkout</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column py-4 px-3">
+                  <div class="widget widget-links">
+                    <h6 class="font-size-base mb-3">Shop pages</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-categories.html">Shop Categories</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v1.html">Product Page v.1</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v2.html">Product Page v.2</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-cart.html">Cart</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-details.html">Checkout - Details</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-shipping.html">Checkout - Shipping</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-payment.html">Checkout - Payment</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-review.html">Checkout - Review</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-complete.html">Checkout - Complete</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="order-tracking.html">Order Tracking</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="comparison.html">Product Comparison</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mega-dropdown-column py-4 pr-3">
+                  <div class="widget widget-links mb-3">
+                    <h6 class="font-size-base mb-3">Grocery store</h6>
+                    <ul class="widget-list">
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-catalog.html">Product Catalog</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-single.html">Single Product Page</a></li>
+                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-checkout.html">Checkout</a></li>
+                    </ul>
+                  </div><a class="d-block" href="#"><img src="img/shop/menu-banner.jpg" alt="Promo banner"></a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Shop User Account</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="account-orders.html">Orders History</a></li>
+                  <li><a class="dropdown-item" href="account-profile.html">Profile Settings</a></li>
+                  <li><a class="dropdown-item" href="account-address.html">Account Addresses</a></li>
+                  <li><a class="dropdown-item" href="account-payment.html">Payment Methods</a></li>
+                  <li><a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
+                  <li><a class="dropdown-item" href="account-tickets.html">My Tickets</a></li>
+                  <li><a class="dropdown-item" href="account-single-ticket.html">Single Ticket</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Vendor Dashboard</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="dashboard-settings.html">Settings</a></li>
+                  <li><a class="dropdown-item" href="dashboard-purchases.html">Purchases</a></li>
+                  <li><a class="dropdown-item" href="dashboard-favorites.html">Favorites</a></li>
+                  <li><a class="dropdown-item" href="dashboard-sales.html">Sales</a></li>
+                  <li><a class="dropdown-item" href="dashboard-products.html">Products</a></li>
+                  <li><a class="dropdown-item" href="dashboard-add-new-product.html">Add New Product</a></li>
+                  <li><a class="dropdown-item" href="dashboard-payouts.html">Payouts</a></li>
+                </ul>
+              </li>
+              <li><a class="dropdown-item" href="account-signin.html">Sign In / Sign Up</a></li>
+              <li><a class="dropdown-item" href="account-password-recovery.html">Password Recovery</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link active" href="#signin-tab" data-toggle="tab" role="tab" aria-selected="true"><i class="fas fa-unlock-alt mr-2 mt-n1"></i>Sign in</a></li>
+          <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab" aria-selected="false"><i class="far fa-user mr-2 mt-n1"></i>Sign up</a></li>
+        </ul>
+        <button class="close" type="button" data-dismiss="modal" (click)="closeModalDialog();" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body tab-content py-4">
+        <form #loginForm="ngForm" class="needs-validation tab-pane fade show active" autocomplete="off" novalidate="" id="signin-tab" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="si-user">User name</label>
+            <input class="form-control" type="text" name="username" id="si-user" placeholder="Username"
+              #username="ngModel" [(ngModel)]="model.username" required>
+            <div class="invalid-feedback">Please provide a valid Username.</div>
+          </div>
+          <div class="form-group">
+            <label for="si-password">Password</label>
+            <div class="password-toggle">
+              <input class="form-control" [type]="showButton ? 'text':'password' " id="si-password" [(ngModel)]="model.password"
+                #password="ngModel" name="password" required>
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox"><i [class]="showEye ? 'fa fa-eye-slash password-toggle-indicator' : 'fa fa-eye password-toggle-indicator'" (click)="showPassword()"></i><span class="sr-only">Show password</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group d-flex flex-wrap justify-content-between">
+            <div class="custom-control custom-checkbox mb-2">
+              <input class="custom-control-input" type="checkbox" id="si-remember">
+              <label class="custom-control-label" for="si-remember">Remember me</label>
+            </div><a class="font-size-sm" href="#">Forgot password?</a>
+          </div>
+          <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block btn-shadow btn-login" type="submit">Sign in</button>
+        </form>
+        <form class="needs-validation tab-pane fade" autocomplete="off" novalidate="" id="signup-tab">
+          <div class="form-group">
+            <label for="su-name">Full name</label>
+            <input class="form-control" type="text" id="su-name" placeholder="John Doe" required="">
+            <div class="invalid-feedback">Please fill in your name.</div>
+          </div>
+          <div class="form-group">
+            <label for="su-email">Email address</label>
+            <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required="">
+            <div class="invalid-feedback">Please provide a valid email address.</div>
+          </div>
+          <div class="form-group">
+            <label for="su-password">Password</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password" required="">
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="su-password-confirm">Confirm password</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password-confirm" required="">
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox" checked><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
