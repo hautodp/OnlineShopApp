@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_service/auth.service';
+import { AlertifyService } from '../_service/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -19,7 +21,8 @@ export class NavComponent implements OnInit {
   // register
   modelRegister: any = {};
 
-  constructor(private service: AuthService) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,29 +41,31 @@ export class NavComponent implements OnInit {
   }
 
   login(){
-    return this.service.login(this.model).subscribe(next => {
-      console.log('Logged in Successfully');
+    this.authService.login(this.model).subscribe(next => {
+      this.alertify.success('Logged in Successfully');
       this.display = 'none';
     }, error => {
-      console.log('Fail to login');
+      this.alertify.error(error);
+    }, ()=> {
+      this.router.navigate(['/home']);
     });
   }
 
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this.authService.loggedIn();
   }
 
   logOut(){
     localStorage.removeItem('token');
-    console.log('logged out');
+    this.alertify.message('Logged out');
+    this.router.navigate(['/home']);
   }
 
   register(){
-    return this.service.register(this.modelRegister).subscribe(() => {
-        console.log('registeration successful');
+    return this.authService.register(this.modelRegister).subscribe(() => {
+        this.alertify.success('Registeration successful');
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
   }
 }
