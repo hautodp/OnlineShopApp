@@ -22,6 +22,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using OnlineShop.API.Helpers;
+using AutoMapper;
 
 namespace OnlineShop.API
 {
@@ -41,9 +42,16 @@ namespace OnlineShop.API
             options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
          
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                    .AddJsonOptions(opt =>{
+                        opt.SerializerSettings.ReferenceLoopHandling=
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    });
             services.AddCors();
+            services.AddAutoMapper(typeof(ProductRepository).Assembly);
             services.AddScoped<IAuthRepository,AuthRepository>();
+            services.AddScoped<IProductRepository,ProductRepository>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters =new TokenValidationParameters

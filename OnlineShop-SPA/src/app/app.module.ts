@@ -11,12 +11,14 @@ import { AuthService } from './_service/auth.service';
 import { HomeComponent } from './home/home.component';
 import { ErrorInterceptorProvider } from './_service/error.inteceptor';
 import { appRoutes } from 'src/routes';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
-      HomeComponent
+      HomeComponent,
+      ProductComponent
    ],
    imports: [
       BrowserModule,
