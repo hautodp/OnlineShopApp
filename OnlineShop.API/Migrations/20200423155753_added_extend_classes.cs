@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineShop.API.Migrations
 {
-    public partial class added_extends_classes : Migration
+    public partial class added_extend_classes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -57,6 +57,7 @@ namespace OnlineShop.API.Migrations
                     Updated = table.Column<DateTime>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     IsNew = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
                     IDManufacturer = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

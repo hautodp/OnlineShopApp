@@ -3,33 +3,51 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { AlertifyService } from './_services/alertify.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { AuthService } from './_service/auth.service';
+import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
-import { ErrorInterceptorProvider } from './_service/error.inteceptor';
+import { ErrorInterceptorProvider } from './_services/error.inteceptor';
 import { appRoutes } from 'src/routes';
-import { ProductComponent } from './product/product.component';
+import { SliderComponent } from './main/slider/slider.component';
+import { ProductComponent } from './main/products/product/product.component';
+import { ProductListComponent } from './main/products/product-list/product-list.component';
+import { ProductDetailComponent } from './main/products/product-detail/product-detail.component';
+import { ProductDetailResolver } from './_resolvers/product-detail.resolver';
+import { ProductService } from './_services/product.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { ProductListResolver } from './_resolvers/product-list.resolver';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       HomeComponent,
-      ProductComponent
+      ProductComponent,
+      ProductListComponent,
+      SliderComponent,
+      ProductDetailComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
+      TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      ProductService,
+      AuthGuard,
+      ProductDetailResolver,
+      AlertifyService,
+      ProductListResolver
    ],
    bootstrap: [
       AppComponent

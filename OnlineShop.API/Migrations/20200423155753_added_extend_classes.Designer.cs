@@ -10,8 +10,8 @@ using OnlineShop.API.Data;
 namespace OnlineShop.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200422152640_added_extends_classes")]
-    partial class added_extends_classes
+    [Migration("20200423155753_added_extend_classes")]
+    partial class added_extend_classes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,8 @@ namespace OnlineShop.API.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Created");
+
+                    b.Property<string>("Description");
 
                     b.Property<int>("IDManufacturer");
 

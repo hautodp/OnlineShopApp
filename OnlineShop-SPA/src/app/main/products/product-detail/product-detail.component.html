@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="{{product?.photoURL}}" alt="{{product.name}}" class="card-img-top img-thumbnail">
+        <div class="card-body">
+          <div>
+            <strong>{{product.name}}</strong>
+          </div>
+          <div>
+            <strong>{{product.price}}</strong>
+          </div>
+          <div>
+            <p>Số lượng trong kho<strong></strong>{{product.price}}</p>
+          </div>
+          <div>
+            <i>{{product.introduction}}</i>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Hình ảnh sản phẩm">
+
+          </tab>
+          <tab heading="Chi tiết sản phẩm">
+            <h5>Thông số kĩ thuật</h5>
+            <p>{{product.description}}</p>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
