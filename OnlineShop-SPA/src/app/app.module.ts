@@ -6,6 +6,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AlertifyService } from './_services/alertify.service';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -38,7 +40,9 @@ import { ProductListResolver } from './_resolvers/product-list.resolver';
       FormsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      NgxGalleryModule,
+      CarouselModule.forRoot()
    ],
    providers: [
       AuthService,

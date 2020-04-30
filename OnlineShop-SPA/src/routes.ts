@@ -10,8 +10,8 @@ import { ProductListResolver } from './app/_resolvers/product-list.resolver';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'products', component: ProductListComponent,
-        resolve: {products: ProductListResolver}},
+    // {path: 'products', component: ProductListComponent,
+    //     resolve: {products: ProductListResolver}},
     {path: 'products/:idProduct', component: ProductDetailComponent,
         resolve: {product: ProductDetailResolver}},
     { path: '',   redirectTo: '/home', pathMatch: 'full' },

@@ -13,5 +13,5 @@ export interface Product {
   description?: string;
   idManufacturer: number;
   photoURL: string;
-  photos?: Photo[];
+  photos: Photo[];
 }
