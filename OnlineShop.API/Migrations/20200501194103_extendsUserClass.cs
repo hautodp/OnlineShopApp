@@ -4,10 +4,48 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineShop.API.Migrations
 {
-    public partial class added_extend_classes : Migration
+    public partial class extendsUserClass : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "Address",
+                table: "Users",
+                nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "Created",
+                table: "Users",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DateOfBirthday",
+                table: "Users",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.AddColumn<string>(
+                name: "Email",
+                table: "Users",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Fullname",
+                table: "Users",
+                nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "LastActived",
+                table: "Users",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.AddColumn<string>(
+                name: "PhoneNumber",
+                table: "Users",
+                nullable: true);
+
             migrationBuilder.CreateTable(
                 name: "Manufacturers",
                 columns: table => new
@@ -158,6 +196,34 @@ namespace OnlineShop.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");
+
+            migrationBuilder.DropColumn(
+                name: "Address",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "Created",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "DateOfBirthday",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "Email",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "Fullname",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "LastActived",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "PhoneNumber",
+                table: "Users");
         }
     }
 }

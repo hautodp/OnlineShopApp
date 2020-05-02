@@ -146,9 +146,23 @@ namespace OnlineShop.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime>("DateOfBirthday");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Fullname");
+
+                    b.Property<DateTime>("LastActived");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<string>("Username");
 

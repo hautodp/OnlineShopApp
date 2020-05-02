@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { User } from '../_models/User';
 
 @Component({
   selector: 'app-nav',
@@ -19,12 +21,29 @@ export class NavComponent implements OnInit {
   model: any = {};
 
   // register
-  modelRegister: any = {};
+  user: User;
+  registerForm: FormGroup;
 
-  constructor(public authService: AuthService, private alertify: AlertifyService,
+  constructor(public authService: AuthService,
+              private alertify: AlertifyService, private fb: FormBuilder,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.createRegisterForm();
+  }
+
+  createRegisterForm(){
+    this.registerForm = this.fb.group({
+      Username: new FormControl('', Validators.required),
+      Password: new FormControl('',
+        [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+      ConfirmPassword: new FormControl('', Validators.required),
+      // Email: new FormControl('', Validators.required)
+    }, this.passwordMatchValidator);
+  }
+
+  passwordMatchValidator(g: FormGroup){
+    return g.get('Password').value === g.get('ConfirmPassword').value ? null : {mismatch: true};
   }
 
   openModalDialog(){
@@ -46,7 +65,7 @@ export class NavComponent implements OnInit {
       this.display = 'none';
     }, error => {
       this.alertify.error(error);
-    }, ()=> {
+    }, () => {
       this.router.navigate(['/home']);
     });
   }
@@ -62,10 +81,18 @@ export class NavComponent implements OnInit {
   }
 
   register(){
-    return this.authService.register(this.modelRegister).subscribe(() => {
-        this.alertify.success('Registeration successful');
-    }, error => {
-      this.alertify.error(error);
-    });
+    if (this.registerForm.valid){
+      this.user = Object.assign({}, this.registerForm.value);
+      this.authService.register(this.user).subscribe(() => {
+        this.alertify.success('Đăng ký thành công');
+      }, error => {
+        this.alertify.error(error);
+      }, () => {
+        this.authService.login(this.user).subscribe(() =>{
+          this.router.navigate(['/home']);
+          this.closeModalDialog();
+        });
+      });
+    }
   }
 }

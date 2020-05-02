@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.API.Dtos
@@ -9,5 +10,12 @@ namespace OnlineShop.API.Dtos
         [Required]
         [StringLength(10, MinimumLength=4, ErrorMessage="You must specify password between 4 and 10 characters")]
         public string Password { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime LastActived { get; set; }
+        public UserForRegisterDto()
+        {
+            Created=DateTime.Now;
+            LastActived=DateTime.Now;
+        }
     }
 }

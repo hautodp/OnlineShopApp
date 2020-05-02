@@ -30,7 +30,7 @@
             </div>
           </a>
             <div class="dropdown-content">
-              <a href="#">Tài khoản của tôi</a>
+              <a [routerLink]="['/account']">Tài khoản của tôi</a>
               <a href="#">Đơn mua</a>
               <a [routerLink]="['/home']" (click)="logOut()" style="color:#00bfa5; cursor: pointer;">Đăng xuất</a>
             </div>
@@ -50,7 +50,7 @@
   </div>
   <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
     <div class="container">
-      <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+      <div class="navbar-collapse collapse" id="navbarCollapse">
         <!-- Search-->
         <div class="input-group-overlay d-lg-none my-3">
           <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="czi-search"></i></span></div>
@@ -278,36 +278,74 @@
           </div>
           <button [disabled]="!loginForm.valid" class="btn btn-primary btn-block btn-shadow btn-login" type="submit">Sign in</button>
         </form>
-        <form class="needs-validation tab-pane fade" autocomplete="off" novalidate="" id="signup-tab">
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="needs-validation tab-pane fade" autocomplete="off" novalidate="" id="signup-tab">
           <div class="form-group">
-            <label for="su-name">Full name</label>
-            <input class="form-control" type="text" id="su-name" placeholder="John Doe" required="">
-            <div class="invalid-feedback">Please fill in your name.</div>
+            <label for="su-name">Tên đăng nhập</label>
+            <input  type="text"
+              [ngClass]="{'is-invalid': registerForm.get('Username').errors
+                && registerForm.get('Username').touched}"
+              class="form-control"
+              id="su-name" formControlName="Username"
+              placeholder="John Doe">
+            <div class="invalid-feedback">Bạn chưa nhập tên đăng nhập</div>
           </div>
           <div class="form-group">
-            <label for="su-email">Email address</label>
-            <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required="">
+            <label for="su-password">Mật khẩu</label>
+            <input type="password"
+              [ngClass]="{'is-invalid': registerForm.get('Password').errors
+              && registerForm.get('Password').touched}"
+              class="form-control"
+              formControlName="Password" id="su-password">
+            <div class="invalid-feedback"
+              *ngIf="registerForm.get('Password').hasError('required')
+                && registerForm.get('Password').touched">
+              Bạn chưa nhập mật khẩu
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="registerForm.get('Password').hasError('minlength')
+                && registerForm.get('Password').touched">
+              Mật khẩu phải có ít nhất 4 ký tự
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="registerForm.get('Password').hasError('maxlength')
+                && registerForm.get('Password').touched">
+              Mật khẩu tối đa 10 ký tự
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="su-password-confirm">Xác nhận mật khẩu</label>
+            <input type="password"
+                [ngClass]="{'is-invalid': registerForm.get('ConfirmPassword').errors
+                && registerForm.get('ConfirmPassword').touched
+                || registerForm.get('ConfirmPassword').touched
+                && registerForm.hasError('mismatch')}"
+              class="form-control"
+              formControlName="ConfirmPassword" id="su-password-confirm">
+            <div class="invalid-feedback"
+              *ngIf="registerForm.get('ConfirmPassword').hasError('required')
+              && registerForm.get('ConfirmPassword').touched">
+              Bạn chưa nhập mật khẩu xác nhận
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="registerForm.hasError('mismatch')
+              && registerForm.get('ConfirmPassword').touched">
+              Mật khẩu không khớp
+            </div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="su-email">Email</label>
+            <input class="form-control" type="email" formControlName="Email" id="su-email" placeholder="johndoe@example.com">
             <div class="invalid-feedback">Please provide a valid email address.</div>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="su-phone">Số điện thoại</label>
+            <input class="form-control" type="tel" formControlName="PhoneNumber" id="su-phone" placeholder="0397596863">
           </div>
           <div class="form-group">
-            <label for="su-password">Password</label>
-            <div class="password-toggle">
-              <input class="form-control" type="password" id="su-password" required="">
-              <label class="password-toggle-btn">
-                <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-              </label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="su-password-confirm">Confirm password</label>
-            <div class="password-toggle">
-              <input class="form-control" type="password" id="su-password-confirm" required="">
-              <label class="password-toggle-btn">
-                <input class="custom-control-input" type="checkbox" checked><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-              </label>
-            </div>
-          </div>
-          <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign up</button>
+            <label for="su-address">Địa chỉ</label>
+            <input class="form-control" type="text" formControlName="Address" id="su-address">
+          </div> -->
+          <button class="btn btn-primary btn-block btn-shadow" [disabled]="!registerForm.valid" type="submit">Sign up</button>
         </form>
       </div>
     </div>

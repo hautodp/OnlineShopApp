@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using AutoMapper;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers {
@@ -16,11 +17,20 @@ namespace OnlineShop.API.Controllers {
     public class AuthController : ControllerBase {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController (IAuthRepository repo, IConfiguration config)
+         private readonly IMapper _mapper;
+
+        public AuthController (IAuthRepository repo, IConfiguration config,IMapper mapper)
         {
             _config = config;
             _repo = repo;
+            _mapper= mapper;
         }
+
+        // [HttpGet("{id}")]
+        // public async Task<IActionResult> GetUser(int id){
+        //     var user = await _repo.GetUser(id);
+        //     return Ok(user);
+        // }
 
         [HttpPost ("register")]
         public async Task<IActionResult> Register (UserForRegisterDto userForRegisterDto) {
@@ -30,13 +40,12 @@ namespace OnlineShop.API.Controllers {
             if (await _repo.UserExists (userForRegisterDto.Username))
                 return BadRequest ("Username already exisits");
 
-            var userToCreate = new User {
-                Username = userForRegisterDto.Username
-            };
+            var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
             var createUser = await _repo.Register (userToCreate, userForRegisterDto.Password);
+            var userToReturn=_mapper.Map<UserForDetailDto>(createUser);
 
-            return StatusCode (201);
+            return CreatedAtRoute("GetUser", new {controller="User", id=createUser.Id}, userToReturn);
         }
 
         [HttpPost ("login")]

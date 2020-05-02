@@ -48,9 +48,9 @@ namespace OnlineShop.API
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
             services.AddCors();
-            services.AddAutoMapper(typeof(ProductRepository).Assembly);
+            services.AddAutoMapper(typeof(ShoppingRepository).Assembly);
             services.AddScoped<IAuthRepository,AuthRepository>();
-            services.AddScoped<IProductRepository,ProductRepository>();
+            services.AddScoped<IShoppingRepository,ShoppingRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {

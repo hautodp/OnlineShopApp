@@ -13,9 +13,9 @@ namespace OnlineShop.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _repo;
+        private readonly IShoppingRepository _repo;
         private readonly IMapper _mapper;
-        public ProductsController(IProductRepository repo, IMapper mapper)
+        public ProductsController(IShoppingRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;

@@ -5,10 +5,10 @@ using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Data
 {
-    public class ProductRepository : IProductRepository
+    public class ShoppingRepository : IShoppingRepository
     {
         public readonly DataContext _context ;
-        public ProductRepository(DataContext context)
+        public ShoppingRepository(DataContext context)
         {
             _context = context;
 
@@ -38,6 +38,12 @@ namespace OnlineShop.API.Data
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync()>0;
+        }
+        
+        public async Task<User> GetUser(int id)
+        {
+            var user=await _context.Users.FirstOrDefaultAsync(u=>u.Id==id);
+            return user;
         }
     }
 }

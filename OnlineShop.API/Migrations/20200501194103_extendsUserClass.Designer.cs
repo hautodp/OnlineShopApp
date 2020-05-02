@@ -10,8 +10,8 @@ using OnlineShop.API.Data;
 namespace OnlineShop.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200423155753_added_extend_classes")]
-    partial class added_extend_classes
+    [Migration("20200501194103_extendsUserClass")]
+    partial class extendsUserClass
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,9 +148,23 @@ namespace OnlineShop.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime>("DateOfBirthday");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Fullname");
+
+                    b.Property<DateTime>("LastActived");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("PhoneNumber");
 
                     b.Property<string>("Username");
 

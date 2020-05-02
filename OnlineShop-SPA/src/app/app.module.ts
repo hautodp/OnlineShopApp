@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,7 @@ import { ProductDetailResolver } from './_resolvers/product-detail.resolver';
 import { ProductService } from './_services/product.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { ProductListResolver } from './_resolvers/product-list.resolver';
+import { InfoUserComponent } from './info-user/info-user.component';
 
 @NgModule({
    declarations: [
@@ -32,12 +33,14 @@ import { ProductListResolver } from './_resolvers/product-list.resolver';
       ProductComponent,
       ProductListComponent,
       SliderComponent,
-      ProductDetailComponent
+      ProductDetailComponent,
+      InfoUserComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),

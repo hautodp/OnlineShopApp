@@ -1,9 +1,8 @@
-
 using System;
 
-namespace OnlineShop.API.Models
+namespace OnlineShop.API.Dtos
 {
-    public class User
+    public class UserForDetailDto
     {
         public int Id { get; set; }
         public string Fullname { get; set; }

@@ -6,10 +6,12 @@ import { SliderComponent } from './app/main/slider/slider.component';
 import { ProductDetailResolver } from './app/_resolvers/product-detail.resolver';
 import { ProductListComponent } from './app/main/products/product-list/product-list.component';
 import { ProductListResolver } from './app/_resolvers/product-list.resolver';
+import { InfoUserComponent } from './app/info-user/info-user.component';
 
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
+    {path: 'account', component: InfoUserComponent},
     // {path: 'products', component: ProductListComponent,
     //     resolve: {products: ProductListResolver}},
     {path: 'products/:idProduct', component: ProductDetailComponent,
