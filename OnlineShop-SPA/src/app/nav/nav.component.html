@@ -2,7 +2,7 @@
   <div class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" [routerLink]="['/home']" style="min-width: 7rem;">
-        <img width="180" height="60" src="../../assets/images/logo.png" alt="Home Shoppe">
+        <img width="180" height="55" src="../../assets/images/logo.png" alt="Home Shoppe">
       </a>
       <a class="navbar-brand d-sm-none mr-2" [routerLink]="['/home']" style="min-width: 4.625rem;">
         <img width="100" height="35" src="../../assets/images/logo.png" alt="Home Shoppe">
@@ -30,7 +30,7 @@
             </div>
           </a>
             <div class="dropdown-content">
-              <a [routerLink]="['/account']">Tài khoản của tôi</a>
+              <a [routerLink]="['/user/edit']">Tài khoản của tôi</a>
               <a href="#">Đơn mua</a>
               <a [routerLink]="['/home']" (click)="logOut()" style="color:#00bfa5; cursor: pointer;">Đăng xuất</a>
             </div>
@@ -48,198 +48,36 @@
       </div>
     </div>
   </div>
-  <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <div class="navbar-collapse collapse" id="navbarCollapse">
-        <!-- Search-->
-        <div class="input-group-overlay d-lg-none my-3">
-          <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="czi-search"></i></span></div>
-          <input class="form-control prepended-form-control" type="text" placeholder="Search for products">
-        </div>
-        <!-- Departments menu-->
-        <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i class="czi-view-grid mr-2"></i>Departments</a>
-            <div class="dropdown-menu px-2 pl-0 pb-4">
-              <div class="d-flex flex-wrap flex-md-nowrap">
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/01.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Clothing</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Women's clothing</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Men's clothing</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's clothing</a></li>
+      <div class="navbar-buttons">
+        <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
+        <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a href="basket.html" class="btn btn-outline-secondary navbar-toggler"><i class="fa fa-shopping-cart"></i></a>
+      </div>
+      <div id="navigation" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Danh mục<b class="caret"></b></a>
+            <ul class="dropdown-menu megamenu">
+              <li>
+                <div class="row">
+                  <div class="col-md-6 col-lg-3">
+                    <h5>Clothing</h5>
+                    <ul class="list-unstyled mb-3">
+                      <li class="nav-item"><a href="category.html" class="nav-link">T-shirts</a></li>
+                      <li class="nav-item"><a href="category.html" class="nav-link">Shirts</a></li>
+                      <li class="nav-item"><a href="category.html" class="nav-link">Pants</a></li>
+                      <li class="nav-item"><a href="category.html" class="nav-link">Accessories</a></li>
                     </ul>
                   </div>
                 </div>
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/02.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Shoes</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Women's shoes</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Men's shoes</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's shoes</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/03.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Gadgets</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Smartphones &amp; Tablets</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Wearable gadgets</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">E-book readers</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex flex-wrap flex-md-nowrap">
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/04.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Furniture &amp; Decor</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Home furniture</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Office furniture</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Lighting and decoration</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/05.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Accessories</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Hats</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Sunglasses</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Bags</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mega-dropdown-column pt-4 px-3">
-                  <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img src="img/shop/departments/06.jpg" alt="Shoes"></a>
-                    <h6 class="font-size-base mb-2">Entertainment</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's toys</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Video games</a></li>
-                      <li class="widget-list-item"><a class="widget-list-link" href="#">Outdoor / Camping</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <!-- Primary menu-->
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown active"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v1.html"><span class="d-block text-heading">Fashion Store v.1</span><small class="d-block text-muted">Classic shop layout</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-fashion-store-v1.html" style="width: 250px;"><img src="img/home/preview/th01.jpg" alt="Fashion Store v.1"></a></div>
               </li>
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v2.html"><span class="d-block text-heading">Fashion Store v.2</span><small class="d-block text-muted">Slider + Featured categories</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-fashion-store-v2.html" style="width: 250px;"><img src="img/home/preview/th02.jpg" alt="Fashion Store v.2"></a></div>
-              </li>
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-electronics-store.html"><span class="d-block text-heading">Electronics Store</span><small class="d-block text-muted">Slider + Promo banners</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-electronics-store.html" style="width: 250px;"><img src="img/home/preview/th03.jpg" alt="Electronics Store"></a></div>
-              </li>
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-marketplace.html"><span class="d-block text-heading">Marketplace</span><small class="d-block text-muted">Multi-vendor, digital goods</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-marketplace.html" style="width: 250px;"><img src="img/home/preview/th04.jpg" alt="Marketplace"></a></div>
-              </li>
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2 border-bottom" href="home-single-store.html"><span class="d-block text-heading">Single Product Store</span><small class="d-block text-muted">Single product / mono brand</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-single-store.html" style="width: 250px;"><img src="img/home/preview/th05.jpg" alt="Single Product / Brand Store"></a></div>
-              </li>
-              <li class="dropdown position-static mb-0"><a class="dropdown-item py-2" href="home-grocery-store.html"><span class="d-block text-heading">Grocery Store</span><small class="d-block text-muted">Full width + Side menu</small></a>
-                <div class="dropdown-menu h-100 animation-0 mt-0 p-3"><a class="d-block" href="home-grocery-store.html" style="width: 250px;"><img src="img/home/preview/th06.jpg" alt="Grocery Store"></a></div>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Shop</a>
-            <div class="dropdown-menu p-0">
-              <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                <div class="mega-dropdown-column py-4 px-3">
-                  <div class="widget widget-links mb-3">
-                    <h6 class="font-size-base mb-3">Shop layouts</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ls.html">Shop Grid - Left Sidebar</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-rs.html">Shop Grid - Right Sidebar</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ft.html">Shop Grid - Filters on Top</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ls.html">Shop List - Left Sidebar</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-rs.html">Shop List - Right Sidebar</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ft.html">Shop List - Filters on Top</a></li>
-                    </ul>
-                  </div>
-                  <div class="widget widget-links">
-                    <h6 class="font-size-base mb-3">Marketplace</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-category.html">Category Page</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-single.html">Single Item Page</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-vendor.html">Vendor Page</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-cart.html">Cart</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="marketplace-checkout.html">Checkout</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mega-dropdown-column py-4 px-3">
-                  <div class="widget widget-links">
-                    <h6 class="font-size-base mb-3">Shop pages</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-categories.html">Shop Categories</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v1.html">Product Page v.1</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v2.html">Product Page v.2</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-cart.html">Cart</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-details.html">Checkout - Details</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-shipping.html">Checkout - Shipping</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-payment.html">Checkout - Payment</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-review.html">Checkout - Review</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-complete.html">Checkout - Complete</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="order-tracking.html">Order Tracking</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="comparison.html">Product Comparison</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mega-dropdown-column py-4 pr-3">
-                  <div class="widget widget-links mb-3">
-                    <h6 class="font-size-base mb-3">Grocery store</h6>
-                    <ul class="widget-list">
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-catalog.html">Product Catalog</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-single.html">Single Product Page</a></li>
-                      <li class="widget-list-item pb-1"><a class="widget-list-link" href="grocery-checkout.html">Checkout</a></li>
-                    </ul>
-                  </div><a class="d-block" href="#"><img src="img/shop/menu-banner.jpg" alt="Promo banner"></a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Account</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Shop User Account</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="account-orders.html">Orders History</a></li>
-                  <li><a class="dropdown-item" href="account-profile.html">Profile Settings</a></li>
-                  <li><a class="dropdown-item" href="account-address.html">Account Addresses</a></li>
-                  <li><a class="dropdown-item" href="account-payment.html">Payment Methods</a></li>
-                  <li><a class="dropdown-item" href="account-wishlist.html">Wishlist</a></li>
-                  <li><a class="dropdown-item" href="account-tickets.html">My Tickets</a></li>
-                  <li><a class="dropdown-item" href="account-single-ticket.html">Single Ticket</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Vendor Dashboard</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="dashboard-settings.html">Settings</a></li>
-                  <li><a class="dropdown-item" href="dashboard-purchases.html">Purchases</a></li>
-                  <li><a class="dropdown-item" href="dashboard-favorites.html">Favorites</a></li>
-                  <li><a class="dropdown-item" href="dashboard-sales.html">Sales</a></li>
-                  <li><a class="dropdown-item" href="dashboard-products.html">Products</a></li>
-                  <li><a class="dropdown-item" href="dashboard-add-new-product.html">Add New Product</a></li>
-                  <li><a class="dropdown-item" href="dashboard-payouts.html">Payouts</a></li>
-                </ul>
-              </li>
-              <li><a class="dropdown-item" href="account-signin.html">Sign In / Sign Up</a></li>
-              <li><a class="dropdown-item" href="account-password-recovery.html">Password Recovery</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
@@ -247,8 +85,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <ul class="nav nav-tabs card-header-tabs" role="tablist">
-          <li class="nav-item"><a class="nav-link active" href="#signin-tab" data-toggle="tab" role="tab" aria-selected="true"><i class="fas fa-unlock-alt mr-2 mt-n1"></i>Sign in</a></li>
-          <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab" aria-selected="false"><i class="far fa-user mr-2 mt-n1"></i>Sign up</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#signin-tab" data-toggle="tab" role="tab" aria-selected="true"><i class="fas fa-unlock-alt mr-2 mt-n1"></i>Đăng nhập</a></li>
+          <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab" aria-selected="false"><i class="far fa-user mr-2 mt-n1"></i>Đăng ký</a></li>
         </ul>
         <button class="close" type="button" data-dismiss="modal" (click)="closeModalDialog();" aria-label="Close"><span aria-hidden="true">×</span></button>
       </div>
@@ -332,19 +170,6 @@
               Mật khẩu không khớp
             </div>
           </div>
-          <!-- <div class="form-group">
-            <label for="su-email">Email</label>
-            <input class="form-control" type="email" formControlName="Email" id="su-email" placeholder="johndoe@example.com">
-            <div class="invalid-feedback">Please provide a valid email address.</div>
-          </div> -->
-          <!-- <div class="form-group">
-            <label for="su-phone">Số điện thoại</label>
-            <input class="form-control" type="tel" formControlName="PhoneNumber" id="su-phone" placeholder="0397596863">
-          </div>
-          <div class="form-group">
-            <label for="su-address">Địa chỉ</label>
-            <input class="form-control" type="text" formControlName="Address" id="su-address">
-          </div> -->
           <button class="btn btn-primary btn-block btn-shadow" [disabled]="!registerForm.valid" type="submit">Sign up</button>
         </form>
       </div>

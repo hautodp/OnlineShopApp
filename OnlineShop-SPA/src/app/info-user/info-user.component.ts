@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { User } from '../_models/User';
+import { ActivatedRoute } from '@angular/router';
+import { AlertifyService } from '../_services/alertify.service';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../_services/user.service';
+import { AuthService } from '../_services/auth.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-info-user',
@@ -7,25 +13,31 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./info-user.component.css']
 })
 export class InfoUserComponent implements OnInit {
-  updateUserForm: FormGroup;
-  constructor( private fb: FormBuilder) { }
 
-  ngOnInit() {
-    this.updateForm();
+  constructor(private route: ActivatedRoute, private alertify: AlertifyService,
+              private userService: UserService, private authService: AuthService) { }
+  @ViewChild('editForm') editForm: NgForm;
+  user: User;
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotify($event: any){
+    if  (this.editForm.dirty){
+      $event.returnValue = true;
+    }
   }
 
-  updateForm(){
-    this.updateUserForm = this.fb.group({
-      gender: ['male'],
-      knownAs: new FormControl('', Validators.required),
-      dateOfBirth: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
-      country: new FormControl('', Validators.required),
+  ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.user = data.user;
     });
   }
 
-  updateInfo(){
-
+  updateUser(){
+    console.log(this.user);
+    this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
+      this.alertify.success('Cập nhập thông tin thành công');
+      this.editForm.reset(this.user);
+    }, error => {
+      this.alertify.error(error);
+    });
   }
-
 }

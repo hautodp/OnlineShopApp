@@ -1,3 +1,5 @@
+using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -21,11 +23,27 @@ namespace OnlineShop.API.Controllers
         }
 
         [HttpGet("{id}", Name="GetUser")]
-        public async Task<IActionResult> GetUser(int id){
+        public async Task<IActionResult> GetUser(int id)
+        {
             var user=await _repo.GetUser(id);
 
             var userToReturn=_mapper.Map<UserForDetailDto>(user);
             return Ok(userToReturn);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id,UserForUpdateDto userForUpdateDto)
+        {
+            if(id!=int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+            
+            var userFromRepo= await _repo.GetUser(id);
+            _mapper.Map(userForUpdateDto,userFromRepo);
+
+            if (await _repo.SaveAll())
+                return NoContent();
+            
+            throw new Exception($"Cập nhập user {id} thất bại");
         }
     }
 }

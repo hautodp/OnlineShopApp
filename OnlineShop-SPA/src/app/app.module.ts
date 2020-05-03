@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AlertifyService } from './_services/alertify.service';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -24,6 +25,13 @@ import { ProductService } from './_services/product.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { ProductListResolver } from './_resolvers/product-list.resolver';
 import { InfoUserComponent } from './info-user/info-user.component';
+import { UserService } from './_services/user.service';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+
+export function tokenGetter(){
+  return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -45,16 +53,26 @@ import { InfoUserComponent } from './info-user/info-user.component';
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
-      CarouselModule.forRoot()
+      CarouselModule.forRoot(),
+      JwtModule.forRoot({
+        config: {
+          tokenGetter,
+          whitelistedDomains: ['localhost:5000'],
+          blacklistedRoutes: ['localhost:5000/api/auth']
+        }
+      })
    ],
    providers: [
       AuthService,
       ErrorInterceptorProvider,
       ProductService,
+      UserService,
       AuthGuard,
       ProductDetailResolver,
       AlertifyService,
-      ProductListResolver
+      ProductListResolver,
+      UserEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

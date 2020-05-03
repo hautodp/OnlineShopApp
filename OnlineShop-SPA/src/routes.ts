@@ -7,11 +7,12 @@ import { ProductDetailResolver } from './app/_resolvers/product-detail.resolver'
 import { ProductListComponent } from './app/main/products/product-list/product-list.component';
 import { ProductListResolver } from './app/_resolvers/product-list.resolver';
 import { InfoUserComponent } from './app/info-user/info-user.component';
+import { UserEditResolver } from './app/_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './app/_guards/prevent-unsaved-changes.guard';
 
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'account', component: InfoUserComponent},
     // {path: 'products', component: ProductListComponent,
     //     resolve: {products: ProductListResolver}},
     {path: 'products/:idProduct', component: ProductDetailComponent,
@@ -22,7 +23,8 @@ export const appRoutes: Routes = [
       runGuardsAndResolvers: 'always',
       canActivate: [AuthGuard],
       children: [
-
+        {path: 'user/edit', component: InfoUserComponent, resolve: {user: UserEditResolver},
+          canDeactivate: [PreventUnsavedChanges]},
       ]
     },
     {path: '**', redirectTo: 'home', pathMatch: 'full'}
