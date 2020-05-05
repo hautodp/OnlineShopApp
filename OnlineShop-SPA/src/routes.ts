@@ -13,11 +13,11 @@ import { PreventUnsavedChanges } from './app/_guards/prevent-unsaved-changes.gua
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
-    // {path: 'products', component: ProductListComponent,
-    //     resolve: {products: ProductListResolver}},
+    {path: 'products', component: ProductListComponent,
+        resolve: {products: ProductListResolver}},
     {path: 'products/:idProduct', component: ProductDetailComponent,
         resolve: {product: ProductDetailResolver}},
-    { path: '',   redirectTo: '/home', pathMatch: 'full' },
+    // { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {
       path: '',
       runGuardsAndResolvers: 'always',
@@ -27,5 +27,5 @@ export const appRoutes: Routes = [
           canDeactivate: [PreventUnsavedChanges]},
       ]
     },
-    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    // {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

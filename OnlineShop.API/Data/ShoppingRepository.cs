@@ -1,6 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Data
@@ -29,13 +30,13 @@ namespace OnlineShop.API.Data
             return product;
         }
 
-        public async Task<IEnumerable<Product>> GetProducts()
-        {
-            var products=await _context.Products.Include(p =>p.Photos).ToListAsync();
-            return products;
-        }
+		public async Task<PagedList<Product>> GetProducts(ProductParams productParams)
+		{
+			var products = _context.Products.Include(p => p.Photos); //tải thông tin liên quan đến hình ảnh với từng sản phẩm
+			return await PagedList<Product>.CreateAsync(products, productParams.PageNumber, productParams.PageSize);
+		}
 
-        public async Task<bool> SaveAll()
+		public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync()>0;
         }

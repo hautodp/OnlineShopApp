@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../_models/Product';
+import { PaginatedResult } from '../_models/Pagination';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,33 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(this.baseUrl + 'products');
+  getProducts(page?, itemsPerPage?): Observable<PaginatedResult<Product[]>>{
+    const paginatedResult: PaginatedResult<Product[]> = new PaginatedResult<Product[]>();
+    var params = new HttpParams();
+    if (page != null && itemsPerPage != null){
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+
+    return this.http.get<Product[]>(this.baseUrl + 'products', {observe: 'response', params})
+    .pipe(
+      map(response => {
+        paginatedResult.result = response.body;
+        if(response.headers.get('Pagination') != null){
+          paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+        }
+        console.log("asds");
+        return paginatedResult;
+      }, err =>{
+        console.log(err);
+      })
+    );
   }
+
+  // getProducts(): Observable<Product[]>{
+  //   return this.http.get<Product[]>(this.baseUrl + 'products/');
+  // }
 
   getProduct(idProduct): Observable<Product>{
     return this.http.get<Product>(this.baseUrl + 'products/' + idProduct);
