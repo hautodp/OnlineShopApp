@@ -21,6 +21,7 @@ export const appRoutes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full'},
     {path: 'cart', component: ShoppingCartComponent},
     {path: 'payment', component: PaymentComponent},
+    // { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {
       path: '',
       runGuardsAndResolvers: 'always',
@@ -30,5 +31,5 @@ export const appRoutes: Routes = [
           canDeactivate: [PreventUnsavedChanges]},
       ]
     },
-    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    // {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

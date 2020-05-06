@@ -9,16 +9,16 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ProductListResolver implements Resolve<Product[]>{
-  pageNumber = 2;
-  pageSize = 10;
+  pageNumber = 1;
+  pageSize = 5;
   constructor(private productSevice: ProductService,
               private router: Router, private alertify: AlertifyService){}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Product[]>{
-    return this.productSevice.getProducts(this.pageNumber, this.pageSize).pipe(
+    return this.productSevice.getProducts(this.pageNumber,this.pageSize).pipe(
       catchError(error => {
         this.alertify.error('Problem retrieving data');
-        this.router.navigate(['/home']);
+        //this.router.navigate(['/home']);
         return of(null);
       })
     );

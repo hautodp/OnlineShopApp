@@ -13,7 +13,7 @@ namespace OnlineShop.API.Data
 
         // Product
         
-		Task<PagedList<Product>> GetProducts(ProductParams productParams);
+	    Task<PagedList<Product>> GetProducts(ProductParams productParams);
         Task<Product> GetProduct(int id);
 
         // User

@@ -10,8 +10,6 @@ namespace OnlineShop.API.Helpers
 	{
 		public int CurrentPage { get; set; }
 
-		public int TotalPage { get; set; }
-
 		public int PageSize { get; set; }
 
 		public int TotalCount { get; set; }
@@ -21,12 +19,11 @@ namespace OnlineShop.API.Helpers
 			TotalCount = count;
 			CurrentPage = pageNumber;
 			PageSize = pageSize;
-			TotalPage = (int)Math.Ceiling(count / (double)pageSize);
+			TotalPages = (int)Math.Ceiling(count / (double)pageSize);
 			this.AddRange(items);
 		}
 
-		public static async Task<PagedList<T>> CreateAsync(IQueryable<T> source,
-			 int pageNumber, int pageSize)
+		public static async Task<PagedList<T>> CreateAsync(IQueryable<T> source, int pageNumber, int pageSize)
 		{
 			var count = await source.CountAsync();
 			var items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OnlineShop-SPA"
+    }
+  },
+  "defaultProject": "OnlineShop-SPA",
+  "cli": {
+    "analytics": "9e9b1603-18ad-46da-9173-0ce592923e35"
+  }
 }

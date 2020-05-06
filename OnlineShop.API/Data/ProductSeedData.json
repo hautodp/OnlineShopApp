@@ -1,78 +1,420 @@
 [
-    {
-      "Name": "AImelda",
-      "Price": 10000000,
-      "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "Created": "2019-09-23",
-      "Updated": "2020-10-30",
-      "Quantity": 3,
-      "IsNew": false,
-      "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "IDManufacturer": 2,
-      "Photos": [
-        {
-          "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
-          "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
-          "DateAdded": "2020-10-30",
-          "isMain": true
-        }
-      ]
-    },
-    {
-      "Name": "Imelda",
-      "Price": 10000000,
-      "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "Created": "2019-09-23",
-      "Updated": "2020-10-30",
-      "Quantity": 3,
-      "IsNew": false,
-      "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "IDManufacturer": 1,
-      "Photos": [
-        {
-          "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
-          "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
-          "DateAdded": "2020-10-30",
-          "isMain": true
-        }
-      ]
-    },
-    {
-      "Name": "Imelda",
-      "Price": 10000000,
-      "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "Created": "2019-09-23",
-      "Updated": "2020-10-30",
-      "Quantity": 3,
-      "IsNew": false,
-      "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "IDManufacturer": 3,
-      "Photos": [
-        {
-          "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
-          "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
-          "DateAdded": "2020-10-30",
-          "isMain": true
-        }
-      ]
-    },
-    {
-      "Name": "Imelda",
-      "Price": 10000000,
-      "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "Created": "2019-09-23",
-      "Updated": "2020-10-30",
-      "Quantity": 3,
-      "IsNew": false,
-      "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
-      "IDManufacturer": 4,
-      "Photos": [
-        {
-          "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
-          "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
-          "DateAdded": "2020-10-30",
-          "isMain": true
-        }
-      ]
-    }
-  ]
+  {
+    "Name": "Colala",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 2,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Dell Assp2",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Asus 532",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Macbook Pros",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Lenovo 12",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Sapaca",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Tesal X",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "XeCudo",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "xxcxa",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Asxas",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "zxcxc",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "vxvcdsf",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Imertelda",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Imexcvcvlda",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "hvncsa",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "thngbc",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "rgnfvc",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "kingdoms",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "ledadx",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "xcxccv",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 1,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "dfgdfg",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 3,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  },
+  {
+    "Name": "Imelda",
+    "Price": 10000000,
+    "Introduction": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "Created": "2019-09-23",
+    "Updated": "2020-10-30",
+    "Quantity": 3,
+    "IsNew": false,
+    "Description": "Culpa veniam deserunt exercitation non excepteur laboris deserunt qui culpa cupidatat irure tempor officia. Qui mollit amet elit duis id adipisicing laborum velit aliquip officia in ea eiusmod quis. Dolor laboris do sint magna id eu. Ad ullamco labore ut cupidatat officia occaecat consequat tempor elit irure enim nulla magna.\r\n",
+    "IDManufacturer": 4,
+    "Photos": [
+      {
+        "url": "https://cdn.tgdd.vn/Products/Images/44/214710/lenovo-ideapad-s340-14iil-i3-1005g1-8gb-512gb-win1-2-org.jpg",
+        "description": "Ipsum consequat voluptate cillum cillum aute in laboris mollit tempor quis et culpa incididunt aliqua.",
+        "DateAdded": "2020-10-30",
+        "isMain": true
+      }
+    ]
+  }
+]
