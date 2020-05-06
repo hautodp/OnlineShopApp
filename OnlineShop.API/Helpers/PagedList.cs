@@ -10,7 +10,7 @@ namespace OnlineShop.API.Helpers
 	{
 		public int CurrentPage { get; set; }
 
-		public int TotalPage { get; set; }
+		public int TotalPages { get; set; }
 
 		public int PageSize { get; set; }
 
@@ -21,7 +21,7 @@ namespace OnlineShop.API.Helpers
 			TotalCount = count;
 			CurrentPage = pageNumber;
 			PageSize = pageSize;
-			TotalPage = (int)Math.Ceiling(count / (double)pageSize);
+			TotalPages = (int)Math.Ceiling(count / (double)pageSize);
 			this.AddRange(items);
 		}
 

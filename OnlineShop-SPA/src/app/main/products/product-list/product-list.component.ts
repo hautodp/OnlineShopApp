@@ -16,14 +16,10 @@ export class ProductListComponent implements OnInit {
   constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe(data => {
-      this.products = data['products'].result;
+        this.route.data.subscribe(data => {
+            this.products = data['products'].result;
 
-      // this.pagination = data['products'];
-      console.log(data);
-    }, err => {
-       console.log(err);
-      });
+        });
   }
 
   // loadProducts(){

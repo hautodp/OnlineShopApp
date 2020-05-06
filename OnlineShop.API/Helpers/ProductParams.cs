@@ -8,13 +8,13 @@ namespace OnlineShop.API.Helpers
 	public class ProductParams
 	{
 		private const int MaxPageSize = 20;
-		public int PageNumber { get; set; } = 1;
-		private int pageSize { get; set; } = 5;
+		public int PageNumber { get; set; } = 1;	
+		private int pageSize = 5;
 
 		public int PageSize
 		{
 			get { return pageSize; }
-			set { PageSize = (value > MaxPageSize) ? MaxPageSize : value; }
+			set { pageSize = (value > MaxPageSize) ? MaxPageSize : value; }
 		}
 	}
 }
