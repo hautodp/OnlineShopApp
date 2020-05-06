@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule, PaginationModule } from 'ngx-bootstrap';
+import { TabsModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AlertifyService } from './_services/alertify.service';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
@@ -51,6 +51,7 @@ export function tokenGetter(){
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
+      ButtonsModule.forRoot(),
       PaginationModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,

@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductListComponent implements OnInit {
   products: Product[];
   pagination: Pagination;
+  userParams: any = {};
   constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,14 +21,25 @@ export class ProductListComponent implements OnInit {
             this.products = data['products'].result;
             this.pagination = data['products'].pagination;
         });
+        this.userParams.name = null;
+        this.userParams.minPrice = 5000000;
+        this.userParams.maxPrice = 100000000;
+        this.userParams.orderBy = '';
   }
   pageChanged(event: any): void{
       this.pagination.currentPage = event.page;
       this.loadProducts();
   }
 
+  resetFilter(){
+    this.userParams.name = '';
+    this.userParams.minPrice = 5000000;
+    this.userParams.maxPrice = 100000000;
+    this.userParams.orderBy = '';
+    this.loadProducts();
+  }
   loadProducts(){
-    this.productSevice.getProducts(this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.productSevice.getProducts(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
     .subscribe((res: PaginatedResult<Product[]>) =>{
         this.products = res.result;
         this.pagination = res.pagination;

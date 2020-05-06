@@ -16,5 +16,13 @@ namespace OnlineShop.API.Helpers
 			get { return pageSize; }
 			set { pageSize = (value > MaxPageSize) ? MaxPageSize : value; }
 		}
+
+		public decimal MinPrice { get; set; } = 5000000;
+
+		public decimal MaxPrice { get; set; } = 10000000000;
+
+		public string Name { get; set; }
+
+		public string OrderBy { get; set; }
 	}
 }
