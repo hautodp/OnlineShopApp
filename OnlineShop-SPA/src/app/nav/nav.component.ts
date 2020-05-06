@@ -4,6 +4,7 @@ import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../_models/User';
+import { Manufactuerer } from '../_models/Manufactuerer';
 
 @Component({
   selector: 'app-nav',

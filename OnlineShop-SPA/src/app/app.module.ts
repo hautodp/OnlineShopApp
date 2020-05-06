@@ -28,6 +28,12 @@ import { InfoUserComponent } from './info-user/info-user.component';
 import { UserService } from './_services/user.service';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolver';
+import { ManufacturerService } from './_services/manufacturer.service';
+import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CartService } from './_services/cart.service';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -42,7 +48,11 @@ export function tokenGetter(){
       ProductListComponent,
       SliderComponent,
       ProductDetailComponent,
-      InfoUserComponent
+      InfoUserComponent,
+      ManufacturerListComponent,
+      ShoppingCartComponent,
+      PaymentComponent,
+      ShoppingCartComponent,
    ],
    imports: [
       BrowserModule,
@@ -72,7 +82,10 @@ export function tokenGetter(){
       AlertifyService,
       ProductListResolver,
       UserEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ManufacturerListResolver,
+      ManufacturerService,
+      CartService
    ],
    bootstrap: [
       AppComponent

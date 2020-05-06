@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Helpers;
 
 namespace OnlineShop.API.Controllers
 {
@@ -22,13 +23,14 @@ namespace OnlineShop.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
-        {
-            var products = await _repo.GetProducts();
+		public async Task<IActionResult> GetProducts([FromQuery]ProductParams productParams)
+		{
+			var products = await _repo.GetProducts(productParams);
 
-            var productsToReturn=_mapper.Map<IEnumerable<ProductForListDto>>(products);
-            return Ok(productsToReturn);
-        }
+			var productsToReturn = _mapper.Map<IEnumerable<ProductForListDto>>(products);
+			Response.AddPagination(products.CurrentPage, products.PageSize, products.TotalCount, products.TotalPage);
+			return Ok(productsToReturn);
+		}
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)

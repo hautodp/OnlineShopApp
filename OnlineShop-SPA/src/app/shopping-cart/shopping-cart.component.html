@@ -1,0 +1,95 @@
+<div id="all">
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- breadcrumb-->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">Shopping cart</li>
+            </ol>
+          </nav>
+        </div>
+        <div id="basket" class="col-lg-9">
+          <div class="box">
+            <form method="post" action="checkout1.html">
+              <div class="alert alert-danger" role="alert">Giỏ hàng hiện đang trống</div>
+              <div>
+                <h1>Giỏ hàng</h1>
+                <p class="text-muted">Bạn có 3 sản phẩm trong giỏ hàng.</p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th colspan="2">Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá tiền</th>
+                        <th colspan="2">Tổng tiền</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let product of productsInCart">
+                      <tr>
+                        <td><a href="#"><img src="{{product.photoURL}}" alt="{{product.name}}"></a></td>
+                        <td><a href="#">{{product.name}}</a></td>
+                        <td>
+                          <input type="number" value="2" class="form-control">
+                        </td>
+                        <td>{{product.price|currency:'VND'}}</td>
+                        <td>{{product.price|currency:'VND'}}</td>
+                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th colspan="5">Total</th>
+                        <th colspan="2">$446.00</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.table-responsive-->
+                <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
+                  <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Tiếp tục mua</a></div>
+                  <div class="right">
+                    <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Cập nhật</button>
+                    <button type="button" [routerLink]="['/payment']"  class="btn btn-primary">Thanh toán <i class="fa fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- /.box-->
+        </div>
+        <!-- /.col-lg-9-->
+        <div class="col-lg-3">
+          <div id="order-summary" class="box">
+            <div class="box-header">
+              <h3 class="mb-0">Thông tin đặt hàng</h3>
+            </div>
+            <p class="text-muted">Tính theo đơn giá tổng tiền và chi phí vận chuyển.</p>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Tổng tiền</td>
+                    <th>$446.00</th>
+                  </tr>
+                  <tr>
+                    <td>Chi phí vận chuyển</td>
+                    <th>$10.00</th>
+                  </tr>
+                  <tr class="total">
+                    <td>Tổng</td>
+                    <th>$456.00</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-3-->
+      </div>
+    </div>
+  </div>
+</div>

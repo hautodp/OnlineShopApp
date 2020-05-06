@@ -37,47 +37,18 @@
         </div>
 
         <div class="navbar-tool ml-3">
-          <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="shop-cart.html">
+          <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" [routerLink]="['/cart']">
             <span class="navbar-tool-label">4</span>
             <i class="navbar-tool-icon fas fa-shopping-cart"></i>
           </a>
-          <a class="navbar-tool-text" href="shop-cart.html"><small>My Cart</small>$265.00
+          <a class="navbar-tool-text" [routerLink]="['/cart']"><small>My Cart</small>$265.00
           </a>
           <!-- Cart dropdown-->
         </div>
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-buttons">
-        <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
-        <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a href="basket.html" class="btn btn-outline-secondary navbar-toggler"><i class="fa fa-shopping-cart"></i></a>
-      </div>
-      <div id="navigation" class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
-          <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Danh mục<b class="caret"></b></a>
-            <ul class="dropdown-menu megamenu">
-              <li>
-                <div class="row">
-                  <div class="col-md-6 col-lg-3">
-                    <h5>Clothing</h5>
-                    <ul class="list-unstyled mb-3">
-                      <li class="nav-item"><a href="category.html" class="nav-link">T-shirts</a></li>
-                      <li class="nav-item"><a href="category.html" class="nav-link">Shirts</a></li>
-                      <li class="nav-item"><a href="category.html" class="nav-link">Pants</a></li>
-                      <li class="nav-item"><a href="category.html" class="nav-link">Accessories</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <app-manufacturer-list></app-manufacturer-list>
 </div>
 
 <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
