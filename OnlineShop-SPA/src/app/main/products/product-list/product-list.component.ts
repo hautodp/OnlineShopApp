@@ -12,21 +12,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
-  pagination: PaginatedResult<Product>;
+  pagination: Pagination;
   constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
         this.route.data.subscribe(data => {
             this.products = data['products'].result;
-
+            this.pagination = data['products'].pagination;
         });
   }
+  pageChanged(event: any): void{
+      this.pagination.currentPage = event.page;
+      this.loadProducts();
+  }
 
-  // loadProducts(){
-  //   this.productSevice.getProducts().subscribe((products: Product[]) =>{
-  //       this.products = products;
-  //     }, err => {
-  //       this.alertity.error(err);
-  //     });
-  // }
+  loadProducts(){
+    this.productSevice.getProducts(this.pagination.currentPage, this.pagination.itemsPerPage)
+    .subscribe((res: PaginatedResult<Product[]>) =>{
+        this.products = res.result;
+        this.pagination = res.pagination;
+      }, err => {
+        this.alertity.error(err);
+      });
+  }
 }
