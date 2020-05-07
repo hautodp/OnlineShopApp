@@ -57,5 +57,11 @@ namespace OnlineShop.API.Data
             var manufacturers = await _context.Manufacturers.ToListAsync();
             return manufacturers;
         }
+
+		public async Task<Product> FindProduct(int id)
+		{
+			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
+			return product;
+		}
     }
 }

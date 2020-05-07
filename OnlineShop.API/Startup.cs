@@ -52,6 +52,15 @@ namespace OnlineShop.API
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IShoppingRepository,ShoppingRepository>();
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(360000);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters =new TokenValidationParameters
@@ -91,6 +100,7 @@ namespace OnlineShop.API
 
             // app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseSession();
             app.UseAuthentication();
             app.UseMvc();
         }

@@ -22,5 +22,6 @@ namespace OnlineShop.API.Data
         // Manufacturer
         Task<IEnumerable<Manufacturer>> GetManufacturers();
         Task<Manufacturer> GetManufacturer(int id);
+		Task<Product> FindProduct(int id);
     }
 }
