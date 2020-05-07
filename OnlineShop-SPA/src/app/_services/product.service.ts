@@ -28,9 +28,8 @@ export class ProductService {
         if(response.headers.get('Pagination') != null){
           paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
         }
-        console.log("asds");
         return paginatedResult;
-      }, err =>{
+      }, err => {
         console.log(err);
       })
     );

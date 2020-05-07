@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/_models/Product';
-import { CartService } from 'src/app/_services/cart.service';
+import { Repository } from 'src/app/_models/Repository';
+import { Cart } from 'src/app/_models/Cart';
 
 @Component({
   selector: 'app-product',
@@ -10,12 +11,12 @@ import { CartService } from 'src/app/_services/cart.service';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
 
-  constructor(private cartService: CartService) { }
+  constructor(private repo: Repository, private cart: Cart) { }
 
   ngOnInit(): void {
   }
 
   handleAddToCart(){
-    this.cartService.sendMsg(this.product);
+    this.cart.addProduct(this.product);
   }
 }

@@ -32,8 +32,11 @@ import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolve
 import { ManufacturerService } from './_services/manufacturer.service';
 import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 import { PaymentComponent } from './payment/payment.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CartService } from './_services/cart.service';
+import { Cart } from './_models/Cart';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { SessionService } from './_services/session.service';
+import { Repository } from './_models/Repository';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -50,7 +53,6 @@ export function tokenGetter(){
       ProductDetailComponent,
       InfoUserComponent,
       ManufacturerListComponent,
-      ShoppingCartComponent,
       PaymentComponent,
       ShoppingCartComponent,
    ],
@@ -86,7 +88,10 @@ export function tokenGetter(){
       PreventUnsavedChanges,
       ManufacturerListResolver,
       ManufacturerService,
-      CartService
+      CartService,
+      Cart,
+      SessionService,
+      Repository
    ],
    bootstrap: [
       AppComponent

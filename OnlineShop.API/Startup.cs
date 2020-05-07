@@ -52,13 +52,17 @@ namespace OnlineShop.API
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IShoppingRepository,ShoppingRepository>();
 
-            services.AddDistributedMemoryCache();
+            services.AddDistributedSqlServerCache(options => {
+            options.ConnectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            options.SchemaName = "dbo";
+            options.TableName = "SessionData";
+            });
 
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromSeconds(360000);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
+            services.AddSession(options => {
+            options.Cookie.Name = "Session";
+            options.IdleTimeout = System.TimeSpan.FromHours(48);
+            options.Cookie.HttpOnly = false;
+            options.Cookie.IsEssential = true;
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -97,12 +101,14 @@ namespace OnlineShop.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 // app.UseHsts();
             }
-
+            app.UseSession();
             // app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            app.UseSession();
+            
             app.UseAuthentication();
+
             app.UseMvc();
+
         }
     }
 }

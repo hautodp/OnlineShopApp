@@ -68,7 +68,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   handleAddToCart(){
-    this.cartService.sendMsg(this.product);
+    this.cartService.addToCart(this.product);
   }
 
 }

@@ -20,9 +20,6 @@ namespace OnlineShop.API.Helpers
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserForUpdateDto, User>();
             CreateMap<Manufacturer, ManufacturerForListDto>();
-            CreateMap<Product,ProductItem>()
-                .ForMember(dest => dest.PhotoURL, opt =>
-                    opt.MapFrom(src =>src.Photos.FirstOrDefault(p =>p.IsMain).Url));
         }
     }
 }

@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Product } from '../_models/Product';
+import { Cart } from '../_models/Cart';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  subject = new Subject();
-  products: Product[];
+  constructor(private cart: Cart) { }
 
-  constructor() { }
-
-  sendMsg(product: Product) {
-    console.log(product);
-    this.products.push(product);
+  addToCart(product: Product){
+    this.cart.addProduct(product);
   }
 
-  getMsg() {
-    return this.products;
+  get itemCount(): number{
+    return this.cart.itemCount;
+  }
+
+  get totalPrice(): number{
+    return this.cart.totalPrice;
   }
 }

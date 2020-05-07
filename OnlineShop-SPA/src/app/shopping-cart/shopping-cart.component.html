@@ -14,10 +14,10 @@
         <div id="basket" class="col-lg-9">
           <div class="box">
             <form method="post" action="checkout1.html">
-              <div class="alert alert-danger" role="alert">Giỏ hàng hiện đang trống</div>
-              <div>
+              <div class="alert alert-danger" *ngIf="cart.selections.length==0" role="alert">Chưa có sản phẩm nào trong giỏ hàng</div>
+              <div *ngIf="cart.selections.length>0">
                 <h1>Giỏ hàng</h1>
-                <p class="text-muted">Bạn có 3 sản phẩm trong giỏ hàng.</p>
+                <p class="text-muted">Bạn có {{itemCount}} sản phẩm trong giỏ hàng.</p>
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -28,22 +28,23 @@
                         <th colspan="2">Tổng tiền</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let product of productsInCart">
-                      <tr>
-                        <td><a href="#"><img src="{{product.photoURL}}" alt="{{product.name}}"></a></td>
-                        <td><a href="#">{{product.name}}</a></td>
+                    <tbody>
+                      <tr *ngFor="let sel of cart.selections">
+                        <td><a href="#"><img src="{{sel.photoURL}}" alt="{{sel.name}}"></a></td>
+                        <td><a href="#">{{sel.name}}</a></td>
                         <td>
-                          <input type="number" value="2" class="form-control">
+                          <!-- <input type="number" value="{{sel.quantity}}" class="form-control"> -->
+                          <input type="number" [(ngModel)]="sel.quantity" class="form-control" name="quantity">
                         </td>
-                        <td>{{product.price|currency:'VND'}}</td>
-                        <td>{{product.price|currency:'VND'}}</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        <td>{{sel.price|currency:'VND'}}</td>
+                        <td>{{sel.price*sel.quantity|currency:'VND'}}</td>
+                        <td><a (click)="cart.updateQuantity(sel.idProduct, 0)"><i class="fa fa-trash-o"></i></a></td>
                       </tr>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th colspan="5">Total</th>
-                        <th colspan="2">$446.00</th>
+                        <th colspan="2">{{totalPrice|currency:'VND'}}</th>
                       </tr>
                     </tfoot>
                   </table>
