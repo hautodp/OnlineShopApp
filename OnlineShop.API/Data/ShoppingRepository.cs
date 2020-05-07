@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.API.Helpers;
@@ -32,7 +33,24 @@ namespace OnlineShop.API.Data
 
 		public async Task<PagedList<Product>> GetProducts(ProductParams productParams)
 		{
-			var products = _context.Products.Include(p => p.Photos); //tải thông tin liên quan đến hình ảnh với từng sản phẩm
+			var products = _context.Products.Include(p => p.Photos).AsQueryable(); //tải thông tin liên quan đến hình ảnh với từng sản phẩm
+			products = products.Where(pro => pro.Price >= productParams.MinPrice && pro.Price <= productParams.MaxPrice); //Tìm kiếm sản phẩm theo giá min và max
+			if (!string.IsNullOrEmpty(productParams.Name) && !(productParams.Name == "null"))
+			{
+				products = products.Where(pro => pro.Name.Contains(productParams.Name)); //.Contain() hoặc StartWith() or EndWith() ~ like '%12%'
+			}
+			if (!string.IsNullOrEmpty(productParams.OrderBy))
+			{
+				switch (productParams.OrderBy)
+				{
+					case "name":
+						products = products.OrderByDescending(p => p.Name);
+						break;
+					case "price":
+						products = products.OrderByDescending(p => p.Price);
+						break;
+				}
+			}
 			return await PagedList<Product>.CreateAsync(products, productParams.PageNumber, productParams.PageSize);
 		}
 
