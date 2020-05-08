@@ -7,12 +7,13 @@ const sessionUrl = environment.apiUrl + 'session';
 @Injectable()
 export class Repository {
   constructor(private http: HttpClient) { }
+
   storeSessionData<T>(dataType: string, data: T) {
     return this.http.post(`${sessionUrl}/${dataType}`, data)
-      .subscribe(response => { });
+        .subscribe(response => { });
   }
 
   getSessionData<T>(dataType: string): Observable<T> {
-    return this.http.get<T>(`${sessionUrl}/${dataType}`);
+      return this.http.get<T>(`${sessionUrl}/${dataType}`);
   }
 }

@@ -8,7 +8,6 @@ namespace OnlineShop.API.Controllers
     [Route("/api/session")]
     [ApiController]
     public class SessionController : Controller {
-    
         [HttpGet("cart")]
         public IActionResult GetCart() {
             return Ok(HttpContext.Session.GetString("cart"));
