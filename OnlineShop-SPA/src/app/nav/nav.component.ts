@@ -4,6 +4,7 @@ import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../_models/User';
+import { SearchService } from '../_services/search.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,8 @@ import { User } from '../_models/User';
 })
 export class NavComponent implements OnInit {
   display = 'none' ;
-
+  //data search
+  nameSearch: '';
   // show - hide password
   showButton = false;
   showEye = false;
@@ -26,7 +28,7 @@ export class NavComponent implements OnInit {
 
   constructor(public authService: AuthService,
               private alertify: AlertifyService, private fb: FormBuilder,
-              private router: Router) { }
+              private router: Router, private dataRoute: SearchService) { }
 
   ngOnInit(): void {
     this.createRegisterForm();
@@ -68,6 +70,10 @@ export class NavComponent implements OnInit {
     }, () => {
       this.router.navigate(['/home']);
     });
+  }
+  testSearch(){
+    this.dataRoute.setData(this.nameSearch);
+    this.router.navigate(['/products']);
   }
 
   loggedIn(){

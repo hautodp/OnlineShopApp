@@ -39,6 +39,12 @@ namespace OnlineShop.API.Data
 			{
 				products = products.Where(pro => pro.Name.Contains(productParams.Name)); //.Contain() hoặc StartWith() or EndWith() ~ like '%12%'
 			}
+
+			//Filter products by Manufacturer
+			if (productParams.IDManufacturer != -1)
+			{
+				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.IDManufacturer);
+			}
 			if (!string.IsNullOrEmpty(productParams.OrderBy))
 			{
 				switch (productParams.OrderBy)
