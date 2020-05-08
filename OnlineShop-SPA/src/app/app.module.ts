@@ -28,6 +28,15 @@ import { InfoUserComponent } from './info-user/info-user.component';
 import { UserService } from './_services/user.service';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolver';
+import { ManufacturerService } from './_services/manufacturer.service';
+import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CartService } from './_services/cart.service';
+import { Cart } from './_models/Cart';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { SessionService } from './_services/session.service';
+import { Repository } from './_models/Repository';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -42,7 +51,10 @@ export function tokenGetter(){
       ProductListComponent,
       SliderComponent,
       ProductDetailComponent,
-      InfoUserComponent
+      InfoUserComponent,
+      ManufacturerListComponent,
+      PaymentComponent,
+      ShoppingCartComponent,
    ],
    imports: [
       BrowserModule,
@@ -74,7 +86,13 @@ export function tokenGetter(){
       AlertifyService,
       ProductListResolver,
       UserEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ManufacturerListResolver,
+      ManufacturerService,
+      CartService,
+      Cart,
+      SessionService,
+      Repository
    ],
    bootstrap: [
       AppComponent

@@ -10,8 +10,8 @@ using OnlineShop.API.Data;
 namespace OnlineShop.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200501194103_extendsUserClass")]
-    partial class extendsUserClass
+    [Migration("20200507090429_add_migrations")]
+    partial class add_migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

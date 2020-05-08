@@ -4,48 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineShop.API.Migrations
 {
-    public partial class extendsUserClass : Migration
+    public partial class add_migrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Address",
-                table: "Users",
-                nullable: true);
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "Created",
-                table: "Users",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "DateOfBirthday",
-                table: "Users",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<string>(
-                name: "Email",
-                table: "Users",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Fullname",
-                table: "Users",
-                nullable: true);
-
-            migrationBuilder.AddColumn<DateTime>(
-                name: "LastActived",
-                table: "Users",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<string>(
-                name: "PhoneNumber",
-                table: "Users",
-                nullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Manufacturers",
                 columns: table => new
@@ -80,6 +42,41 @@ namespace OnlineShop.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.IDOrder);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Fullname = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<byte[]>(nullable: true),
+                    PasswordSalt = table.Column<byte[]>(nullable: true),
+                    DateOfBirthday = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    Created = table.Column<DateTime>(nullable: false),
+                    LastActived = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Values",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Values", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,6 +186,12 @@ namespace OnlineShop.API.Migrations
                 name: "Photos");
 
             migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Values");
+
+            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
@@ -196,34 +199,6 @@ namespace OnlineShop.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Manufacturers");
-
-            migrationBuilder.DropColumn(
-                name: "Address",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "Created",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "DateOfBirthday",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "Email",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "Fullname",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "LastActived",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "PhoneNumber",
-                table: "Users");
         }
     }
 }

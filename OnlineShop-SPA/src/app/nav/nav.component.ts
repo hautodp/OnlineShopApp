@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../_models/User';
 import { SearchService } from '../_services/search.service';
-
+import { Manufactuerer } from '../_models/Manufactuerer';
+import { Cart } from '../_models/Cart';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -26,7 +27,7 @@ export class NavComponent implements OnInit {
   user: User;
   registerForm: FormGroup;
 
-  constructor(public authService: AuthService,
+  constructor(public authService: AuthService, private cart: Cart,
               private alertify: AlertifyService, private fb: FormBuilder,
               private router: Router, private dataRoute: SearchService) { }
 
@@ -100,5 +101,13 @@ export class NavComponent implements OnInit {
         });
       });
     }
+  }
+
+  get itemCount(): number{
+    return this.cart.itemCount;
+  }
+
+  get totalPrice(): number{
+    return this.cart.totalPrice;
   }
 }

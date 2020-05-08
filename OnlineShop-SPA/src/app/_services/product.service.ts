@@ -3,15 +3,15 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../_models/Product';
-import { PaginatedResult } from '../_models/Pagination';
 import { map } from 'rxjs/operators';
-
+import { PaginatedResult } from '../_models/Pagination';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   baseUrl = environment.apiUrl;
 
+  products: Product[];
   constructor(private http: HttpClient) { }
 
   getProducts(page?, itemsPerPage?, userParams?): Observable<PaginatedResult<Product[]>>{
@@ -35,6 +35,8 @@ export class ProductService {
           paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
         }
         return paginatedResult;
+      }, err => {
+        console.log(err);
       })
     );
   }

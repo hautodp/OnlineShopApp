@@ -18,6 +18,7 @@ export class InfoUserComponent implements OnInit {
               private userService: UserService, private authService: AuthService) { }
   @ViewChild('editForm') editForm: NgForm;
   user: User;
+  enableButtonUpdate = false;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotify($event: any){
     if  (this.editForm.dirty){
@@ -39,5 +40,13 @@ export class InfoUserComponent implements OnInit {
     }, error => {
       this.alertify.error(error);
     });
+  }
+
+  parseDate(dateString: string): Date {
+    this.enableButtonUpdate = true;
+    if (dateString) {
+        return new Date(dateString);
+    }
+    return null;
   }
 }
