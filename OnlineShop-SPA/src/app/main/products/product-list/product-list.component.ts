@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   pagination: Pagination;
   userParams: any = {};
+  isReset: boolean = false;
   constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute, private dataSearch: SearchService) { }
 
   ngOnInit(): void{
@@ -25,10 +26,10 @@ export class ProductListComponent implements OnInit {
         this.userParams.minPrice = 5000000;
         this.userParams.maxPrice = 200000000;
         this.userParams.orderBy = '';
-        this.userParams.name = this.dataSearch.nameSearch;
-        this.userParams.idmanufacturer = this.dataSearch.int;
-        console.log(this.userParams.idmanufacturer);
-        this.loadProducts();
+        this.dataSearch.nameSearch.subscribe(mes => {
+          this.userParams.name = mes;
+          this.loadProducts();
+        });
   }
   pageChanged(event: any): void{
       this.pagination.currentPage = event.page;
@@ -39,8 +40,7 @@ export class ProductListComponent implements OnInit {
     this.userParams.minPrice = 5000000;
     this.userParams.maxPrice = 100000000;
     this.userParams.orderBy = '';
-    this.userParams.name = '';
-    this.userParams.idmanufacturer = 5;
+    this.dataSearch.setData('');
     this.loadProducts();
   }
 

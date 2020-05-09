@@ -60,32 +60,32 @@ namespace OnlineShop.API.Data
 			return await PagedList<Product>.CreateAsync(products, productParams.PageNumber, productParams.PageSize);
 		}
 
-        public async Task<bool> SaveAll()
-        {
-            return await _context.SaveChangesAsync()>0;
-        }
-        
-        public async Task<User> GetUser(int id)
-        {
-            var user=await _context.Users.FirstOrDefaultAsync(u=>u.Id==id);
-            return user;
-        }
+		public async Task<bool> SaveAll()
+		{
+			return await _context.SaveChangesAsync()>0;
+		}
+		
+		public async Task<User> GetUser(int id)
+		{
+			var user=await _context.Users.FirstOrDefaultAsync(u=>u.Id==id);
+			return user;
+		}
 
-        public async Task<Manufacturer> GetManufacturer(int id)
-        {
-            var manufacturer = await _context.Manufacturers.FirstOrDefaultAsync(m=>m.IDManufacturer==id);
-            return manufacturer;
-        }
-        public async Task<IEnumerable<Manufacturer>> GetManufacturers()
-        {
-            var manufacturers = await _context.Manufacturers.ToListAsync();
-            return manufacturers;
-        }
+		public async Task<Manufacturer> GetManufacturer(int id)
+		{
+			var manufacturer = await _context.Manufacturers.FirstOrDefaultAsync(m=>m.IDManufacturer==id);
+			return manufacturer;
+		}
+		public async Task<IEnumerable<Manufacturer>> GetManufacturers()
+		{
+			var manufacturers = await _context.Manufacturers.ToListAsync();
+			return manufacturers;
+		}
 
 		public async Task<Product> FindProduct(int id)
 		{
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
-    }
+	}
 }
