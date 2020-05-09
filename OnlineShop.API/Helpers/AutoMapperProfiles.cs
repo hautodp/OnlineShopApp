@@ -5,7 +5,7 @@ using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Helpers
 {
-    public class AutoMapperProfiles: Profile
+ public class AutoMapperProfiles: Profile
     {
         public AutoMapperProfiles()
         {

@@ -57,5 +57,9 @@ li {
 .nav-item:hover .dropdown-menu{display: block;}
 
 .dropdown-menu{
-  background-color: #697ef8;
+  background-color: #89a14e;
+}
+
+.row div a{
+  margin-bottom: 10px;
 }
