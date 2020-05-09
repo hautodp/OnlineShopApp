@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   pagination: Pagination;
   userParams: any = {};
 
+  isReset = false;
   constructor(private productSevice: ProductService, private alertity: AlertifyService,
               private route: ActivatedRoute, private dataSearch: SearchService) { }
 
@@ -28,16 +29,16 @@ export class ProductListComponent implements OnInit {
         this.route.paramMap.subscribe((params: ParamMap) => {
           this.userParams.name = params.get('nameSearch');
           console.log(params.get('nameSearch'));
-        })
+        });
 
         this.userParams.minPrice = 5000000;
         this.userParams.maxPrice = 200000000;
         this.userParams.orderBy = '';
-        this.userParams.name = this.dataSearch.nameSearch;
-        // console.log(this.route.snapshot.paramMap.get('nameSearch'));
-        // this.userParams.idmanufacturer = this.dataSearch.int;
-        // console.log(this.dataSearch.nameSearch);
-        this.loadProducts();
+
+        this.dataSearch.nameSearch.subscribe(mes => {
+          this.userParams.name = mes;
+          this.loadProducts();
+        });
   }
   pageChanged(event: any): void{
       this.pagination.currentPage = event.page;
@@ -48,8 +49,7 @@ export class ProductListComponent implements OnInit {
     this.userParams.minPrice = 5000000;
     this.userParams.maxPrice = 100000000;
     this.userParams.orderBy = '';
-    this.userParams.name = '';
-    this.userParams.idmanufacturer = 5;
+    this.dataSearch.setData('');
     this.loadProducts();
   }
 

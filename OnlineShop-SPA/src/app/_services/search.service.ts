@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  public nameSearch: string;
-  public int = 5;
-  constructor() {
-    this.nameSearch = '';
-  }
-  getData(){
-    return this.nameSearch;
-  }
 
-  setData(data){
-    this.nameSearch = data;
-    // console.log(data);
+  private messageSoure = new BehaviorSubject('');
+  nameSearch = this.messageSoure.asObservable();
+  constructor() {
+  }
+  setData(message: string){
+    this.messageSoure.next(message);
   }
 }

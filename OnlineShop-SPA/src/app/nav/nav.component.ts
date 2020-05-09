@@ -81,8 +81,9 @@ export class NavComponent implements OnInit {
   testSearch(){
 
     this.dataRoute.setData(this.nameSearch);
-    this.router.navigate(['/products'], {queryParams: {nameSearch: this.nameSearch}});
-    // console.log(this.router);
+
+    console.log("data from nav: " + this.nameSearch);
+    this.router.navigate(['/products']);
   }
 
   loggedIn(){
