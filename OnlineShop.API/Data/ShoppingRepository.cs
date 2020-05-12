@@ -35,6 +35,7 @@ namespace OnlineShop.API.Data
 		{
 			var products = _context.Products.Include(p => p.Photos).AsQueryable(); //tải thông tin liên quan đến hình ảnh với từng sản phẩm
 			products = products.Where(pro => pro.Price >= productParams.MinPrice && pro.Price <= productParams.MaxPrice); //Tìm kiếm sản phẩm theo giá min và max
+
 			if (!string.IsNullOrEmpty(productParams.Name) && !(productParams.Name == "null"))
 			{
 				products = products.Where(pro => pro.Name.Contains(productParams.Name)); //.Contain() hoặc StartWith() or EndWith() ~ like '%12%'

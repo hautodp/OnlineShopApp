@@ -59,7 +59,7 @@ namespace OnlineShop.API
             });
 
             services.AddSession(options => {
-            options.Cookie.Name = "Session";
+            options.Cookie.Name = "OnlineShop.API.Session";
             options.IdleTimeout = System.TimeSpan.FromHours(48);
             options.Cookie.HttpOnly = false;
             options.Cookie.IsEssential = true;
@@ -81,6 +81,7 @@ namespace OnlineShop.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSession();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -101,8 +102,8 @@ namespace OnlineShop.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 // app.UseHsts();
             }
-            app.UseSession();
-            // app.UseHttpsRedirection();
+            
+            app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             
             app.UseAuthentication();

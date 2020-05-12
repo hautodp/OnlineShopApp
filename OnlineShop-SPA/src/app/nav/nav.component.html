@@ -18,7 +18,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="openModalDialog()">Đăng nhập <strong>|</strong> Đăng ký</button>
+          <button class="btn btn-outline-success btn-sm my-2 my-sm-0 p-2" type="submit" (click)="openModalDialog()">Đăng nhập <strong>|</strong> Đăng ký</button>
         </form>
         <div class="dropdown" *ngIf="loggedIn()">
           <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">

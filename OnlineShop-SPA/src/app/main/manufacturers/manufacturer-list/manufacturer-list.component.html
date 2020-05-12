@@ -6,12 +6,13 @@
     </div>
     <div id="navigation" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+        <li class="nav-item"><a [routerLink]="['/home']" class="nav-link">Trang chủ</a></li>
+        <li class="nav-item"><a [routerLink]="['/products']"class="nav-link">Sản phẩm</a></li>
         <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Danh mục<b class="caret"></b></a>
           <ul class="dropdown-menu megamenu">
             <li>
               <div class="row">
-                <div *ngFor="let manufacturer of manufacturers" class="col-md-6 col-lg-2">
+                <div *ngFor="let manufacturer of manufacturers" class="col-md-6 col-lg-3">
                   <button (click)="sendData(manufacturer.idManufacturer)">{{manufacturer.name}}</button>
                 </div>
               </div>
