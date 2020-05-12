@@ -41,9 +41,9 @@ namespace OnlineShop.API.Data
 			}
 
 			//Filter products by Manufacturer
-			if (productParams.IDManufacturer != -1)
+			if (productParams.IdManufacturer != -1)
 			{
-				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.IDManufacturer);
+				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.IdManufacturer);
 			}
 			if (!string.IsNullOrEmpty(productParams.OrderBy))
 			{

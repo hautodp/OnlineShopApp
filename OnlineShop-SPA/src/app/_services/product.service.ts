@@ -26,6 +26,7 @@ export class ProductService {
         params = params.append('maxPrice', userParams.maxPrice);
         params = params.append('name', userParams.name);
         params = params.append('orderBy', userParams.orderBy);
+        params = params.append('idManufacturer', userParams.idManufacturer);
     }
     return this.http.get<Product[]>(this.baseUrl + 'products', {observe: 'response', params})
     .pipe(

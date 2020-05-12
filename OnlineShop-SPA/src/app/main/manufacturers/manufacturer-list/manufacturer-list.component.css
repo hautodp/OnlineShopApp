@@ -59,3 +59,14 @@ li {
 .dropdown-menu{
   background-color: #697ef8;
 }
+ button{
+   border: none;
+   background-color: transparent;
+   font-weight: bold;
+ }
+ button:hover{
+    background-color: blue;
+ }
+ button:active{
+   background-color: #697ef8;
+ }

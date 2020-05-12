@@ -74,7 +74,6 @@ export class NavComponent implements OnInit {
   }
   testSearch(){
     this.dataRoute.setData(this.nameSearch);
-    console.log("data from nav: " + this.nameSearch);
     this.router.navigate(['/products']);
   }
 

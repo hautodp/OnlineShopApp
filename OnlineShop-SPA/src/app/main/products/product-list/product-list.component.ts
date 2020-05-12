@@ -5,6 +5,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Pagination, PaginatedResult } from 'src/app/_models/Pagination';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from 'src/app/_services/search.service';
+import { CategoryService } from 'src/app/_services/category.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,9 +15,10 @@ import { SearchService } from 'src/app/_services/search.service';
 export class ProductListComponent implements OnInit {
   products: Product[];
   pagination: Pagination;
-  userParams: any = {};
+  userParams: any = {
+  };
   isReset: boolean = false;
-  constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute, private dataSearch: SearchService) { }
+  constructor(private productSevice: ProductService, private alertity: AlertifyService, private route: ActivatedRoute, private dataSearch: SearchService, private cateGory: CategoryService) { }
 
   ngOnInit(): void{
         this.route.data.subscribe(data => {
@@ -26,10 +28,15 @@ export class ProductListComponent implements OnInit {
         this.userParams.minPrice = 5000000;
         this.userParams.maxPrice = 200000000;
         this.userParams.orderBy = '';
-        this.dataSearch.nameSearch.subscribe(mes => {
-          this.userParams.name = mes;
+        this.cateGory.idCateGory.subscribe(data => {
+          this.userParams.idManufacturer = data;
           this.loadProducts();
         });
+        this.dataSearch.nameSearch.subscribe(mes => {
+           this.userParams.name = mes;
+           this.loadProducts();
+        });
+        console.log(this.userParams);
   }
   pageChanged(event: any): void{
       this.pagination.currentPage = event.page;
@@ -40,6 +47,7 @@ export class ProductListComponent implements OnInit {
     this.userParams.minPrice = 5000000;
     this.userParams.maxPrice = 100000000;
     this.userParams.orderBy = '';
+    this.cateGory.setData(-1);
     this.dataSearch.setData('');
     this.loadProducts();
   }
