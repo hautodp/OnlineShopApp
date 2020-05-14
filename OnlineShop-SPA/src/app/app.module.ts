@@ -32,11 +32,10 @@ import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolve
 import { ManufacturerService } from './_services/manufacturer.service';
 import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 import { PaymentComponent } from './payment/payment.component';
-import { CartService } from './_services/cart.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { SessionService } from './_services/session.service';
-import { Repository } from './_models/Repository';
 import { Cart } from './_models/Cart.model';
+import { Repository } from './_models/Repository';
+import { TestComponent } from './test/test.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -55,6 +54,7 @@ export function tokenGetter(){
       ManufacturerListComponent,
       PaymentComponent,
       ShoppingCartComponent,
+      TestComponent,
    ],
    imports: [
       BrowserModule,
@@ -71,7 +71,7 @@ export function tokenGetter(){
       JwtModule.forRoot({
         config: {
           tokenGetter,
-          whitelistedDomains: ['localhost:5000'],
+          whitelistedDomains: ['localhost:5000','http://localhost:5000/api/session/cart'],
           blacklistedRoutes: ['localhost:5000/api/auth']
         }
       })
@@ -89,10 +89,8 @@ export function tokenGetter(){
       PreventUnsavedChanges,
       ManufacturerListResolver,
       ManufacturerService,
-      CartService,
-      Repository,
       Cart,
-      SessionService,
+      Repository
    ],
    bootstrap: [
       AppComponent

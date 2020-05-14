@@ -25,6 +25,6 @@ namespace OnlineShop.API.Helpers
 
 		public string OrderBy { get; set; }
 
-		public int IDManufacturer { get; set; } = -1;
+		public int aa { get; set; } = -1;
 	}
 }

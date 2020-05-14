@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ProductSelection } from './Cart.model';
+import { HttpClient } from '@angular/common/http';
 
-const sessionUrl = environment.apiUrl + 'session';
 @Injectable()
 export class Repository {
-  constructor(private http: HttpClient) { }
-
-  storeSessionData<T>(dataType: string, data: T) {
-    return this.http.post(`${sessionUrl}/${dataType}`, data)
-        .subscribe(response => { });
+  constructor(private http: HttpClient){}
+  private sendRequest<T>(verb: string, url: string, body?: ProductSelection)
+  : Observable<T> {
+    return this.http.request<T>(verb, url, {
+    body: body
+  });
+  }
+  storeSessionData(dataType: string, data: any) {
+    return this.sendRequest('POST', 'http://localhost:5000/api/session/' + dataType, data)
+    .subscribe(response => { });
   }
 
-  getSessionData<T>(dataType: string): Observable<T> {
-      return this.http.get<T>(`${sessionUrl}/${dataType}`);
+  getSessionData(dataType: string): Observable<any> {
+    return this.sendRequest('GET', 'http://localhost:5000/api/session/' + dataType);
   }
 }

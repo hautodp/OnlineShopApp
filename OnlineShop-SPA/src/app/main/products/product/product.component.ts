@@ -18,5 +18,6 @@ export class ProductComponent implements OnInit {
 
   handleAddToCart(){
     this.cart.addProduct(this.product);
+    console.log(this.product);
   }
 }

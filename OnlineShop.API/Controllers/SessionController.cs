@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OnlineShop.API.Models;
+using System;
 
 namespace OnlineShop.API.Controllers
 {
     [Route("/api/session")]
     [ApiController]
-    public class SessionController : Controller {
+    public class SessionController : Controller
+    {
         [HttpGet("cart")]
         public IActionResult GetCart() {
             return Ok(HttpContext.Session.GetString("cart"));

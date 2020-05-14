@@ -42,9 +42,9 @@ namespace OnlineShop.API.Data
 			}
 
 			//Filter products by Manufacturer
-			if (productParams.IDManufacturer != -1)
+			if (productParams.aa != -1)
 			{
-				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.IDManufacturer);
+				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.aa);
 			}
 			if (!string.IsNullOrEmpty(productParams.OrderBy))
 			{
