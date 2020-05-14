@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../_models/User';
 import { SearchService } from '../_services/search.service';
 import { Cart } from '../_models/Cart.model';
+
 
 @Component({
   selector: 'app-nav',
@@ -14,8 +15,8 @@ import { Cart } from '../_models/Cart.model';
 })
 export class NavComponent implements OnInit {
   display = 'none' ;
-  //data search
-  nameSearch: '';
+  // data search
+  nameSearch: string = '';
   // show - hide password
   showButton = false;
   showEye = false;
@@ -27,11 +28,15 @@ export class NavComponent implements OnInit {
   user: User;
   registerForm: FormGroup;
 
-  constructor(public authService: AuthService, private cart: Cart,
+  constructor(public authService: AuthService, private cart: Cart, private route: ActivatedRoute,
               private alertify: AlertifyService, private fb: FormBuilder,
               private router: Router, private dataRoute: SearchService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.nameSearch = params.get('nameSearch');
+      console.log(params.get('nameSearch'));
+    });
     this.createRegisterForm();
   }
 
@@ -64,7 +69,7 @@ export class NavComponent implements OnInit {
 
   login(){
     this.authService.login(this.model).subscribe(next => {
-      this.alertify.success('Logged in Successfully');
+      this.alertify.success('Đăng nhập thành công');
       this.display = 'none';
     }, error => {
       this.alertify.error(error);
@@ -73,12 +78,8 @@ export class NavComponent implements OnInit {
     });
   }
   testSearch(){
-    this.dataRoute.setData(this.nameSearch);
-    this.router.navigate(['/products']);
-  }
 
-  getAllProducts(){
-    this.dataRoute.setData('');
+    this.dataRoute.setData(this.nameSearch);
     this.router.navigate(['/products']);
   }
 
@@ -88,7 +89,7 @@ export class NavComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem('token');
-    this.alertify.message('Logged out');
+    // this.alertify.message('Thoát');
     this.router.navigate(['/home']);
   }
 
@@ -100,7 +101,7 @@ export class NavComponent implements OnInit {
       }, error => {
         this.alertify.error(error);
       }, () => {
-        this.authService.login(this.user).subscribe(() =>{
+        this.authService.login(this.user).subscribe(() => {
           this.router.navigate(['/home']);
           this.closeModalDialog();
         });

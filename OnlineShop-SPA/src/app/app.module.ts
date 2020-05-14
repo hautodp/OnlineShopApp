@@ -30,12 +30,11 @@ import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolver';
 import { ManufacturerService } from './_services/manufacturer.service';
-import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { Cart } from './_models/Cart.model';
 import { Repository } from './_models/Repository';
-import { TestComponent } from './test/test.component';
+import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -51,10 +50,9 @@ export function tokenGetter(){
       SliderComponent,
       ProductDetailComponent,
       InfoUserComponent,
-      ManufacturerListComponent,
       PaymentComponent,
       ShoppingCartComponent,
-      TestComponent,
+      ManufacturerListComponent
    ],
    imports: [
       BrowserModule,
