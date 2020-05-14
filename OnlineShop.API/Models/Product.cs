@@ -17,8 +17,8 @@ namespace OnlineShop.API.Models
         public int Quantity { get; set; } // Số lượng còn
         public bool IsNew { get; set; }
         public string Description { get; set; }
-        public Manufacturer manufacturer { get; set; }
-        public int IDManufacturer { get; set; } // ID nhà sản xuất
+		public Manufacturer manufacturer { get; set; }
+		public int IDManufacturer { get; set; } // ID nhà sản xuất
         public ICollection<Photo> Photos{ get; set; } // album photos of product
     }
 }
