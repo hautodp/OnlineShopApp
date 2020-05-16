@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using OnlineShop.API.Dtos;
 using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
@@ -23,5 +24,9 @@ namespace OnlineShop.API.Data
 		Task<IEnumerable<Manufacturer>> GetManufacturers();
 		Task<Manufacturer> GetManufacturer(int id);
 		Task<Product> FindProduct(int id);
+
+		//Order
+		Task<IEnumerable<Order>> GetOrders();
+		Task<Order> CreateOrder(OrderForPaymentDto orderFor);
 	}
 }

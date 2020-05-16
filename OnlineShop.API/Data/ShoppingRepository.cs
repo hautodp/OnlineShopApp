@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OnlineShop.API.Dtos;
 using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
@@ -88,5 +90,32 @@ namespace OnlineShop.API.Data
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
+
+		//order controller
+		public async Task<IEnumerable<Order>> GetOrders()
+		{
+			var orders = await _context.Orders.ToListAsync();
+			return orders;
+		}
+
+		public async Task<Order> CreateOrder(OrderForPaymentDto orderFor)
+		{
+			DateTime today = DateTime.Now;
+			Order order = new Order();
+			order.Address = orderFor.Address;
+			order.Email = orderFor.Email;
+			order.IdUser = orderFor.IdUser;
+			order.OrderState = 1;
+			order.Paid = "Chua thanh toan";
+			order.PhoneNumber = orderFor.PhoneNumber;
+			order.Receiver = orderFor.Receiver;
+			order.OrderDate = today;
+			order.DeliveryDate = today.AddDays(3);
+			await _context.Orders.AddAsync(order);
+			await _context.SaveChangesAsync();
+			return order;
+		}
+
+
 	}
 }

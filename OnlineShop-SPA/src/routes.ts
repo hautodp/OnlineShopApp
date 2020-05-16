@@ -20,7 +20,7 @@ export const appRoutes: Routes = [
         resolve: {product: ProductDetailResolver}},
     { path: '',   redirectTo: '/home', pathMatch: 'full'},
     {path: 'cart', component: ShoppingCartComponent},
-    {path: 'payment', component: PaymentComponent},
+    //
     // { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {
       path: '',
@@ -29,6 +29,7 @@ export const appRoutes: Routes = [
       children: [
         {path: 'user/edit', component: InfoUserComponent, resolve: {user: UserEditResolver},
           canDeactivate: [PreventUnsavedChanges]},
+          {path: 'payment', component: PaymentComponent}
       ]
     },
     // {path: '**', redirectTo: 'home', pathMatch: 'full'}
