@@ -1,6 +1,7 @@
 using System.Linq;
 using AutoMapper;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Dtos.Admin;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Helpers
@@ -19,7 +20,12 @@ namespace OnlineShop.API.Helpers
             CreateMap<Photo, PhotosForDetailDto>();
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserForUpdateDto, User>();
+
             CreateMap<Manufacturer, ManufacturerForListDto>();
+            CreateMap<Manufacturer, Manufacturer>();
+
+            CreateMap<Admin,AdminForDetailDto>();
+            CreateMap<AdminForRegisterDto,Admin>();
         }
     }
 }

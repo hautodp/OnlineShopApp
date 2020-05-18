@@ -1,0 +1,13 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build//css/themes/bootstrap.min.css';
+
+
+input .ng-touched .ng-invalid{
+  border-color: #dc3545;
+}
+
+input .ng-valid{
+  border-color: #28a745;
+}

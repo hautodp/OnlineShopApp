@@ -10,11 +10,14 @@ using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
 using AutoMapper;
 using OnlineShop.API.Models;
+using OnlineShop.API.Dtos.Admin;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineShop.API.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase {
+    public class AuthController : ControllerBase 
+    {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
          private readonly IMapper _mapper;
@@ -58,6 +61,55 @@ namespace OnlineShop.API.Controllers {
             var claims = new [] {
                 new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString ()),
                 new Claim (ClaimTypes.Name, userFromRepo.Username)
+            };
+
+            var key = new SymmetricSecurityKey (Encoding.UTF8
+                .GetBytes(_config.GetSection("AppSettings:Token").Value));
+
+            var creds=new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var tokenDescriptor=new SecurityTokenDescriptor
+            {
+                Subject= new ClaimsIdentity(claims),
+                Expires= DateTime.Now.AddDays(1),
+                SigningCredentials=creds
+            };
+
+            var tokenHandler=new JwtSecurityTokenHandler();
+
+            var token= tokenHandler.CreateToken(tokenDescriptor);
+
+            return Ok(new {
+                token=tokenHandler.WriteToken(token)
+            });
+        }
+
+        [HttpPost ("admin/register")]
+        public async Task<IActionResult> RegisterAdmin (AdminForRegisterDto adminForRegisterDto) {
+            // validate request
+            adminForRegisterDto.Username = adminForRegisterDto.Username.ToLower ();
+
+            if (await _repo.AdminExists (adminForRegisterDto.Username))
+                return BadRequest ("Username already exisits");
+
+            var adminToCreate = _mapper.Map<Admin>(adminForRegisterDto);
+
+            var createAdmin = await _repo.RegisterAdmin(adminToCreate, adminForRegisterDto.Password);
+            var adminToReturn=_mapper.Map<AdminForDetailDto>(createAdmin);
+
+            return CreatedAtRoute("GetAdmin", new {controller="Admin", id=createAdmin.Id}, adminToReturn);
+        }
+
+        [HttpPost ("admin/login")]
+        public async Task<IActionResult> Login(AdminForLoginDto adminForLoginDto) {
+            var adminFromRepo = await _repo.LoginAdmin(adminForLoginDto.Username.ToLower(), adminForLoginDto.Password);
+
+            if (adminFromRepo == null)
+                return null;
+
+            var claims = new [] {
+                new Claim (ClaimTypes.NameIdentifier, adminFromRepo.Id.ToString ()),
+                new Claim (ClaimTypes.Name, adminFromRepo.Username)
             };
 
             var key = new SymmetricSecurityKey (Encoding.UTF8

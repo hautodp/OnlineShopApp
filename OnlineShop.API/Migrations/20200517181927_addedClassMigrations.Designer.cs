@@ -10,8 +10,8 @@ using OnlineShop.API.Data;
 namespace OnlineShop.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200507090429_add_migrations")]
-    partial class add_migrations
+    [Migration("20200517181927_addedClassMigrations")]
+    partial class addedClassMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +21,39 @@ namespace OnlineShop.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("OnlineShop.API.Models.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime>("DateOfBirthday");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Fullname");
+
+                    b.Property<byte[]>("PasswordHash");
+
+                    b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<string>("Username");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
+
             modelBuilder.Entity("OnlineShop.API.Models.Manufacturer", b =>
                 {
                     b.Property<int>("IDManufacturer")
@@ -29,7 +62,7 @@ namespace OnlineShop.API.Migrations
 
                     b.Property<string>("Contact");
 
-                    b.Property<bool>("IsAtive");
+                    b.Property<bool>("IsActive");
 
                     b.Property<string>("Name");
 

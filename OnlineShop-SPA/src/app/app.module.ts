@@ -52,7 +52,7 @@ export function tokenGetter(){
       InfoUserComponent,
       PaymentComponent,
       ShoppingCartComponent,
-      ManufacturerListComponent
+      ManufacturerListComponent,
    ],
    imports: [
       BrowserModule,
@@ -69,7 +69,7 @@ export function tokenGetter(){
       JwtModule.forRoot({
         config: {
           tokenGetter,
-          whitelistedDomains: ['localhost:5000','http://localhost:5000/api/session/cart'],
+          whitelistedDomains: ['localhost:5000'],
           blacklistedRoutes: ['localhost:5000/api/auth']
         }
       })

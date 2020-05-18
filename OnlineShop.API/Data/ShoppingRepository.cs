@@ -89,5 +89,5 @@ namespace OnlineShop.API.Data
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
-	}
+    }
 }

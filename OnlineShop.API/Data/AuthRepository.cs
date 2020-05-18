@@ -68,5 +68,38 @@ namespace OnlineShop.API.Data
                 return true;
             return false;
         }
+
+        public async Task<Admin> RegisterAdmin(Admin admin, string password)
+        {
+            byte[] passwordHash,passwordSalt;
+            CreatePasswordHash(password,out passwordHash,out passwordSalt);
+
+            admin.PasswordHash=passwordHash;
+            admin.PasswordSalt=passwordSalt;
+
+            await _context.Admins.AddAsync(admin);
+            await _context.SaveChangesAsync();
+
+            return admin;
+        }
+
+        public async Task<Admin> LoginAdmin(string username, string password)
+        {
+            var admin = await _context.Admins.FirstOrDefaultAsync(x =>x.Username==username);
+            if(admin==null)
+                return null;
+
+            if(!VerifyPasswordHash(password, admin.PasswordHash, admin.PasswordSalt))
+                return null;
+
+            return admin;
+        }
+
+        public async Task<bool> AdminExists(string username)
+        {
+            if(await _context.Admins.AnyAsync(x =>x.Username==username))
+                return true;
+            return false;
+        }
     }
 }

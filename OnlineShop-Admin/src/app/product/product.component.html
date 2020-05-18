@@ -1,0 +1,173 @@
+<div class="container-fluid">
+  <!-- Breadcrumbs-->
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+          <a [routerLink]="['/home']">Trang chủ</a>
+      </li>
+      <li class="breadcrumb-item active">Sản phẩm</li>
+  </ol>
+
+  <!-- DataTables Example -->
+  <div class="card mb-3">
+      <div class="card-header">
+          <i class="fas fa-table"></i>
+          Danh sách điện thoại
+              <a class="btn btn-success" style="float:right" href="/Admin/Phones/Create">
+                  Thêm mới
+              </a>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" cellspacing="0">
+                  <thead>
+                      <tr>
+                          <th>Mã DT</th>
+                          <th>Tên DT</th>
+                          <th>Giá</th>
+                          <th>Image</th>
+                          <th>Ngày cập nhật</th>
+
+                          <th>#</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                              <tr id="row_1">
+                              <td>1</td>
+                              <td>iPhone Xs Max 512GB</td>
+                              <td>43990000</td>
+                              <td>1.png</td>
+                              <td>2/2/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/1">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_1').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/1">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_2">
+                              <td>2</td>
+                              <td>iPhone X 256GB Silver</td>
+                              <td>27990000</td>
+                              <td>2.png</td>
+                              <td>3/3/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/2">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_2').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/2">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_3">
+                              <td>3</td>
+                              <td>iPhone 8 256GB</td>
+                              <td>18990000</td>
+                              <td>3.png</td>
+                              <td>3/5/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/3">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_3').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/3">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_4">
+                              <td>4</td>
+                              <td>iPhone 6 32GB</td>
+                              <td>6990000</td>
+                              <td>4.png</td>
+                              <td>3/6/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/4">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_4').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/4">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_5">
+                              <td>5</td>
+                              <td>Samsung Galaxy Note 9 512GB</td>
+                              <td>28490000</td>
+                              <td>5.png</td>
+                              <td>3/7/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/5">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_5').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/5">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_6">
+                              <td>6</td>
+                              <td>Samsung Galaxy Note 8</td>
+                              <td>15990000</td>
+                              <td>6.png</td>
+                              <td>3/8/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/6">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_6').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/6">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_7">
+                              <td>7</td>
+                              <td>Samsung Galaxy J4</td>
+                              <td>3490000</td>
+                              <td>7.png</td>
+                              <td>3/9/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/7">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_7').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/7">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_8">
+                              <td>8</td>
+                              <td>Samsung Galaxy A6</td>
+                              <td>5490000</td>
+                              <td>8.png</td>
+                              <td>12/18/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/8">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_8').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/8">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_9">
+                              <td>9</td>
+                              <td>Samsung Galaxy A7 (2018) 128GB</td>
+                              <td>8990000</td>
+                              <td>9.png</td>
+                              <td>3/4/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/9">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_9').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/9">Xóa</a>
+                              </td>
+                          </tr>
+                              <tr id="row_10">
+                              <td>10</td>
+                              <td>Samsung Galaxy A8 Star</td>
+                              <td>12590000</td>
+                              <td>10.png</td>
+                              <td>3/4/2018 12:00:00 AM</td>
+
+                              <td>
+                                  <a href="/Admin/Phones/Edit/10">Sửa</a>
+                                  |
+                                  <a data-ajax="true" data-ajax-complete="$('#row_10').remove()" data-ajax-confirm="Bạn có muốn xóa bản ghi này?" data-ajax-method="Delete" href="/Admin/Phones/Delete/10">Xóa</a>
+                              </td>
+                          </tr>
+                  </tbody>
+              </table>
+              <br>
+              <div class="MenuPage">
+                  <div class="pagination-container"><ul class="pagination"><li class="active"><a>1</a></li><li><a href="/Admin/Phones?page=2">2</a></li><li><a href="/Admin/Phones?page=3">3</a></li><li><a href="/Admin/Phones?page=4">4</a></li><li class="PagedList-skipToNext"><a href="/Admin/Phones?page=2" rel="next">»</a></li></ul></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -11,7 +11,6 @@ import { ShoppingCartComponent } from './app/shopping-cart/shopping-cart.compone
 import { ProductListComponent } from './app/main/products/product-list/product-list.component';
 import { ProductListResolver } from './app/_resolvers/product-list.resolver';
 
-
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'products', component: ProductListComponent,

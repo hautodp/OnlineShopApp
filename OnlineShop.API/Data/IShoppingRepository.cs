@@ -9,7 +9,8 @@ namespace OnlineShop.API.Data
 	{
 		void Add<T>(T entity) where T: class;
 		void Delete<T>(T entity) where T: class;
-		Task<bool> SaveAll();
+
+        Task<bool> SaveAll();
 
 		// Product
 		
@@ -23,5 +24,5 @@ namespace OnlineShop.API.Data
 		Task<IEnumerable<Manufacturer>> GetManufacturers();
 		Task<Manufacturer> GetManufacturer(int id);
 		Task<Product> FindProduct(int id);
-	}
+    }
 }

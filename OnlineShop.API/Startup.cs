@@ -42,10 +42,11 @@ namespace OnlineShop.API
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
-         
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                    .AddJsonOptions(opt =>{
-                        opt.SerializerSettings.ReferenceLoopHandling=
+                    .AddJsonOptions(opt =>
+                    {
+                        opt.SerializerSettings.ReferenceLoopHandling =
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
             services.AddCors();
