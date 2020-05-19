@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers
 {
@@ -33,11 +35,13 @@ namespace OnlineShop.API.Controllers
 			return Ok(orders);
 		}
 
+
 		[HttpPost]
-		public async Task<IActionResult> CreateOrder(OrderForPaymentDto orderForPayment)
+		public async Task<IActionResult> CreateOrder([FromBody] OrderForPaymentDto orderForPayment)
 		{
 			var createdOrder = await _repo.CreateOrder(orderForPayment);
-			return Ok(createdOrder);
+			var listOrderDetails = await _repo.CreateOrderDetail(createdOrder, orderForPayment.Selections);
+			return Ok(listOrderDetails);
 		}
 
 

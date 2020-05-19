@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using OnlineShop.API.Dtos;
 using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
@@ -98,7 +99,7 @@ namespace OnlineShop.API.Data
 			return orders;
 		}
 
-		public async Task<Order> CreateOrder(OrderForPaymentDto orderFor)
+		public async Task<int> CreateOrder(OrderForPaymentDto orderFor)
 		{
 			DateTime today = DateTime.Now;
 			Order order = new Order();
@@ -113,7 +114,24 @@ namespace OnlineShop.API.Data
 			order.DeliveryDate = today.AddDays(3);
 			await _context.Orders.AddAsync(order);
 			await _context.SaveChangesAsync();
-			return order;
+			return order.IDOrder;
+		}
+
+		//create Order Detail
+		public async Task<int> CreateOrderDetail(int IdOrder, ProductSelection[] productSelections)
+		{
+			var listProducts = productSelections;
+			foreach (ProductSelection orderDetail in listProducts)
+			{
+				OrderDetail detail = new OrderDetail();
+				detail.IDOrder = IdOrder;
+				detail.IDProduct = orderDetail.IdProduct;
+				detail.Quantity = orderDetail.Quantity;
+				detail.UnitPrice = orderDetail.Price;
+				await _context.OrderDetails.AddAsync(detail);
+				await _context.SaveChangesAsync();
+			}
+			return 1;
 		}
 
 
