@@ -99,6 +99,20 @@ namespace OnlineShop.API.Data
 			return orders;
 		}
 
+		public async Task<IEnumerable<Order>> GetOrdersByUserID(int id)
+		{
+			var orders = _context.Orders.AsQueryable();
+			var ordersByUserID = orders.Where(o => o.IdUser == id);
+			return ordersByUserID;
+		}
+
+		public async Task<IEnumerable<OrderDetail>> GetOrderDetails(int OrderID)
+		{
+			var detailOrders = _context.OrderDetails.AsQueryable();
+			var targetDetailOrders = detailOrders.Where(detail => detail.IDOrder == OrderID);
+			return targetDetailOrders;
+		}
+
 		public async Task<int> CreateOrder(OrderForPaymentDto orderFor)
 		{
 			DateTime today = DateTime.Now;

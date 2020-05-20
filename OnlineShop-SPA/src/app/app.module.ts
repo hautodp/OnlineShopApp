@@ -37,6 +37,10 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { SessionService } from './_services/session.service';
 import { Repository } from './_models/Repository';
 import { Cart } from './_models/Cart.model';
+import { CommonModule } from '@angular/common';
+import { UserOderDetailComponent } from './UserOderDetail/UserOderDetail.component';
+import { UserOrdersComponent } from './UserOrders/UserOrders.component';
+import { UserOrdersService } from './_services/userOrders.service';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -55,8 +59,11 @@ export function tokenGetter(){
       ManufacturerListComponent,
       PaymentComponent,
       ShoppingCartComponent,
+      UserOderDetailComponent,
+      UserOrdersComponent
    ],
    imports: [
+      CommonModule,
       BrowserModule,
       HttpClientModule,
       FormsModule,
@@ -93,6 +100,7 @@ export function tokenGetter(){
       Repository,
       Cart,
       SessionService,
+      UserOrdersService
    ],
    bootstrap: [
       AppComponent

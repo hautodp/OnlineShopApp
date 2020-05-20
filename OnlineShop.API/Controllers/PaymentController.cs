@@ -35,6 +35,21 @@ namespace OnlineShop.API.Controllers
 			return Ok(orders);
 		}
 
+		//Get Orders by UserID
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetOrdersByUserID(int id)
+		{
+			var ordersByUserID = await _repo.GetOrdersByUserID(id);
+			return Ok(ordersByUserID);
+		}
+
+		[HttpGet("detail/{idOrder}")]
+		public async Task<IActionResult> GetOrderDetailsByOrderID(int idOrder)
+		{
+			var targetDetailOrders = await _repo.GetOrderDetails(idOrder);
+			return Ok(targetDetailOrders);
+		}
+
 
 		[HttpPost]
 		public async Task<IActionResult> CreateOrder([FromBody] OrderForPaymentDto orderForPayment)

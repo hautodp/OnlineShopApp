@@ -27,9 +27,11 @@ namespace OnlineShop.API.Data
 
 		//Order
 		Task<IEnumerable<Order>> GetOrders();
+		Task<IEnumerable<Order>> GetOrdersByUserID(int UserID);
 		Task<int> CreateOrder(OrderForPaymentDto orderFor);
 
 		//Order Detail
 		Task<int> CreateOrderDetail(int IdOrder, ProductSelection[] productSelections);
+		Task<IEnumerable<OrderDetail>> GetOrderDetails(int OrderID);
 	}
 }
