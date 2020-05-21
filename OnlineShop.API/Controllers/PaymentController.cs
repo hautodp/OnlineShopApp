@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers
@@ -36,17 +37,17 @@ namespace OnlineShop.API.Controllers
 		}
 
 		//Get Orders by UserID
-		[HttpGet("{id}")]
-		public async Task<IActionResult> GetOrdersByUserID(int id)
+		[HttpGet("order")]
+		public async Task<IActionResult> GetOrdersByUserID([FromQuery] OrderParams orderParams)
 		{
-			var ordersByUserID = await _repo.GetOrdersByUserID(id);
+			var ordersByUserID = await _repo.GetOrdersByUserID(orderParams.IdUser);
 			return Ok(ordersByUserID);
 		}
 
-		[HttpGet("detail/{idOrder}")]
-		public async Task<IActionResult> GetOrderDetailsByOrderID(int idOrder)
+		[HttpGet("order/detail/{id}")]
+		public async Task<IActionResult> GetOrderDetailsByOrderID(int id)
 		{
-			var targetDetailOrders = await _repo.GetOrderDetails(idOrder);
+			var targetDetailOrders = await _repo.GetOrderDetails(id);
 			return Ok(targetDetailOrders);
 		}
 

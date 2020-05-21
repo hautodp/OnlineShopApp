@@ -41,6 +41,7 @@ import { CommonModule } from '@angular/common';
 import { UserOderDetailComponent } from './UserOderDetail/UserOderDetail.component';
 import { UserOrdersComponent } from './UserOrders/UserOrders.component';
 import { UserOrdersService } from './_services/userOrders.service';
+import { OrderDetailService } from './_services/orderDetail.service';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -100,7 +101,8 @@ export function tokenGetter(){
       Repository,
       Cart,
       SessionService,
-      UserOrdersService
+      UserOrdersService,
+      OrderDetailService
    ],
    bootstrap: [
       AppComponent

@@ -31,8 +31,9 @@ export const appRoutes: Routes = [
       children: [
         {path: 'user/edit', component: InfoUserComponent, resolve: {user: UserEditResolver},
           canDeactivate: [PreventUnsavedChanges]},
-          {path: 'payment/:idUser', component: UserOrdersComponent},
-          {path: ':id/detail', component: UserOderDetailComponent}
+          {path: 'payment', component: PaymentComponent},
+          {path: 'payment/order', component: UserOrdersComponent},
+          {path: 'payment/order/detail/:idOrder', component: UserOderDetailComponent}
       ]
     },
     // {path: '**', redirectTo: 'home', pathMatch: 'full'}

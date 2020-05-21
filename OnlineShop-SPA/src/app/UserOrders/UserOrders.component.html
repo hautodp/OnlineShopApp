@@ -32,7 +32,7 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let sel of listOrders">
-                        <td><a [routerLink]="['/detail']">{{sel.idOrder}}</a></td>
+                        <td><a [routerLink]="['detail/', sel.idOrder]">{{sel.idOrder}}</a></td>
                         <td>{{sel.receiver}}</td>
                         <td>{{sel.email}}</td>
                         <td>{{sel.phoneNumber}}</td>

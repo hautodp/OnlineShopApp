@@ -31,7 +31,7 @@
           </a>
             <div class="dropdown-content">
               <a [routerLink]="['/user/edit']" routerLinkActive="router-link-active">Tài khoản của tôi</a>
-              <a [routerLink]="['/payment/', authService.decodedToken?.nameid]" routerLinkActive="router-link-active">Đơn hàng của tôi</a>
+              <a [routerLink]="['/payment/order']" routerLinkActive="router-link-active">Đơn hàng của tôi</a>
               <a [routerLink]="['/home']" (click)="logOut()" style="color:#00bfa5; cursor: pointer;">Đăng xuất</a>
             </div>
         </div>
