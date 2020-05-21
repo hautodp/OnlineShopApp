@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FileUploadModule} from 'ng2-file-upload';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
@@ -23,6 +25,12 @@ import { AddManufacturerComponent } from './manufacturer/add-manufacturer/add-ma
 import { AlertifyService } from './_services/alertify.service';
 import { UpdateManufacturerComponent } from './manufacturer/update-manufacturer/update-manufacturer.component';
 import { ManufacturerEditResolver } from './_resolvers/manufacturer-edit.resolver';
+import { ProductService } from './_services/product.service';
+import { ProductEditResolver } from './_resolvers/product-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditComponent } from './product/photo-edit/photo-edit.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { EditProductComponent } from './product/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +43,17 @@ import { ManufacturerEditResolver } from './_resolvers/manufacturer-edit.resolve
     CustomerComponent,
     TemplateComponent,
     AddManufacturerComponent,
-    UpdateManufacturerComponent
+    UpdateManufacturerComponent,
+    EditProductComponent,
+    PhotoEditComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FileUploadModule,
+    TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
@@ -51,7 +64,10 @@ import { ManufacturerEditResolver } from './_resolvers/manufacturer-edit.resolve
     ManufacturerListResolver,
     ManufacturerService,
     AlertifyService,
-    ManufacturerEditResolver
+    ManufacturerEditResolver,
+    ProductService,
+    ProductEditResolver,
+    PreventUnsavedChanges
   ],
   bootstrap: [AppComponent]
 })

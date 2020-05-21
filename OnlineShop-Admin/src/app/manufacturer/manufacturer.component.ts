@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ManufacturerComponent implements OnInit {
   manufacturers: Manufacturer[];
   constructor(private router: Router, private manufacturerService: ManufacturerService,
-              private alertifyService: AlertifyService, private toastr: ToastrService) { }
+              private alertifyService: AlertifyService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.loadManufacturers();
@@ -27,21 +27,19 @@ export class ManufacturerComponent implements OnInit {
     this.manufacturerService.getManufacturers().subscribe((manufacturers: Manufacturer[]) => {
       this.manufacturers = manufacturers;
     }, error => {
-      console.log(error);
+      this.toastrService.error(error);
     });
   }
 
   deleteManufacturer(id: number){
-    console.log(id);
     this.alertifyService.confirm('Bạn có muốn xóa dòng vừa chọn', () => {
       this.manufacturerService.deleteManufacturer(id).subscribe(
         () => {
         this.manufacturers.splice(this.manufacturers.findIndex(m => m.idManufacturer === id), 1);
-        this.toastr.success('Xóa thành công');
-
+        this.toastrService.info('Xóa thành công');
         },
         err => {
-          this.toastr.error('Xóa thất bại');
+          this.toastrService.error('Xóa thất bại');
         }
       );
     });

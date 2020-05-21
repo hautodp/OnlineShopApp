@@ -89,5 +89,22 @@ namespace OnlineShop.API.Data
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
+
+        public async Task<IEnumerable<Product>> GetAllProducts()
+        {
+            var products = await _context.Products.Include(p => p.Photos).ToListAsync();
+            return products;
+        }
+
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var photo = await _context.Photos.FirstOrDefaultAsync(x => x.Id == id);
+            return photo;
+        }
+
+        public async Task<Photo> GetMainPhotoForProduct(int idProduct)
+        {
+            return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
+        }
     }
 }

@@ -262,3 +262,7 @@ svg {
       margin-top: 1%;
   }
 }
+
+.nav-link{
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +10,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+              private toastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   login(){
     this.authService.login(this.model).subscribe(next => {
-      console.log('Đăng nhập thành công');
+      this.toastrService.success('Đăng nhập thành công');
     }, error => {
-      console.log('Đăng nhập thất bại');
+      this.toastrService.error('Đăng nhập thất bại');
     }, () => {
       this.router.navigate(['admin/home']);
     });

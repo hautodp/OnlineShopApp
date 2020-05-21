@@ -30,7 +30,11 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let sel of cart.selections">
-                        <td><a href="#"><img src="{{sel.photoURL}}" alt="{{sel.name}}"></a></td>
+                        <td>
+                          <a href="#">
+                            <!-- <img src="{{sel.photoURL}}" alt="{{sel.name}}"> -->
+                          </a>
+                        </td>
                         <td><a href="#">{{sel.name}}</a></td>
                         <td>
                           <!-- <input type="number" value="{{sel.quantity}}" class="form-control"> -->

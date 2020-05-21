@@ -12,7 +12,7 @@ export class Cart {
     repo.getSessionData("cart").subscribe(cartData => {
       if (cartData != null) {
         cartData.map(item => new ProductSelection(this, item.idProduct,
-        item.name, item.price, item.photoURL, item.quantity))
+        item.name, item.price, item.quantity))
           .forEach(item => this.selections.push(item));
         this.update(false);
       }
@@ -27,7 +27,7 @@ export class Cart {
   } else {
       this.selections.push(new ProductSelection(this,
       product.idProduct, product.name,
-      product.price, product.photoURL,1));
+      product.price,1));
   }
       this.update();
   }
@@ -61,7 +61,7 @@ export class Cart {
       this.repo.storeSessionData("cart", this.selections.map(s => {
         return {
           idProduct: s.idProduct, name: s.name,
-          price: s.price, photoURL: s.photoURL, quantity: s.quantity
+          price: s.price, quantity: s.quantity
         }
       }));
     }
@@ -73,7 +73,6 @@ export class ProductSelection {
   public idProduct?: number,
   public name?: string,
   public price?: number,
-  public photoURL?: string,
   private quantityValue?: number) { }
   get quantity() {
     return this.quantityValue;

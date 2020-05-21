@@ -7,3 +7,13 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.text-danger:hover{
+  cursor: pointer;
+  color: red;
+}
+
+.text-primary{
+  cursor: pointer;
+  color: blue;
+}

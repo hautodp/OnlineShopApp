@@ -4,17 +4,17 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ManufacturerService } from '../_services/manufacturer.service';
 import { Manufacturer } from '../_models/Manufacturer';
-import { AlertifyService } from '../_services/alertify.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ManufacturerEditResolver implements Resolve<Manufacturer>{
-  constructor(private manufacturerSevice: ManufacturerService,
-              private router: Router, private alertify: AlertifyService){}
+  constructor(private manufacturerSevice: ManufacturerService, private toastrService: ToastrService,
+              private router: Router){}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Manufacturer>{
     return this.manufacturerSevice.getManufacturer(route.params['id']).pipe(
       catchError(error => {
-        this.alertify.error('Problem retrieving data');
+        this.toastrService.error('Problem retrieving data');
         this.router.navigate(['admin/home']);
         return of(null);
       })

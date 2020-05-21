@@ -9,7 +9,11 @@ import { TemplateComponent } from 'src/app/template/template.component';
 import { AuthGuard } from 'src/app/_guards/auth.guard';
 import { AddManufacturerComponent } from 'src/app/manufacturer/add-manufacturer/add-manufacturer.component';
 import { UpdateManufacturerComponent } from 'src/app/manufacturer/update-manufacturer/update-manufacturer.component';
-import {ManufacturerEditResolver} from 'src/app/_resolvers/manufacturer-edit.resolver';
+import { ManufacturerEditResolver } from 'src/app/_resolvers/manufacturer-edit.resolver';
+import { ProductEditResolver } from 'src/app/_resolvers/product-edit.resolver';
+import { PreventUnsavedChanges } from 'src/app/_guards/prevent-unsaved-changes.guard';
+import { AddProductComponent } from 'src/app/product/add-product/add-product.component';
+import { EditProductComponent } from 'src/app/product/edit-product/edit-product.component';
 
 const childRoutes: Routes = [
   {
@@ -19,6 +23,9 @@ const childRoutes: Routes = [
     children: [
       { path: 'home', component: HomeComponent},
       { path: 'products', component: ProductComponent},
+      { path: 'products/add', component: AddProductComponent},
+      { path: 'products/:id', component: EditProductComponent,
+          resolve: {product: ProductEditResolver}, canDeactivate: [PreventUnsavedChanges]},
       { path: 'orders', component: OrderComponent},
       { path: 'customers', component: CustomerComponent},
       { path: 'manufacturers', component: ManufacturerComponent},

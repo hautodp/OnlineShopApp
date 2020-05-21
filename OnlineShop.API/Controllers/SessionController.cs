@@ -17,8 +17,11 @@ namespace OnlineShop.API.Controllers
 
         [HttpPost("cart")]
         public void StoreCart([FromBody] ProductSelection[] products) {
-            var jsonData = JsonConvert.SerializeObject(products);
-            HttpContext.Session.SetString("cart", jsonData);
+            if (HttpContext.Session.GetString("cart") != null)
+            {
+                var jsonData = JsonConvert.SerializeObject(products);
+                HttpContext.Session.SetString("cart", jsonData);
+            }
         }
     }
 }

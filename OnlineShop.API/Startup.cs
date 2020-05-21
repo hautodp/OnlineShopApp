@@ -50,7 +50,10 @@ namespace OnlineShop.API
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.AddTransient<Seed>();
             services.AddAutoMapper(typeof(ShoppingRepository).Assembly);
+
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IShoppingRepository,ShoppingRepository>();
 

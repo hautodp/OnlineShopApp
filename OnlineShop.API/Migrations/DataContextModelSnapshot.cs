@@ -60,7 +60,7 @@ namespace OnlineShop.API.Migrations
 
                     b.Property<string>("Contact");
 
-                    b.Property<bool>("IsActive");
+                    b.Property<bool?>("IsActive");
 
                     b.Property<string>("Name");
 
@@ -132,6 +132,8 @@ namespace OnlineShop.API.Migrations
                     b.Property<int>("IDProduct");
 
                     b.Property<bool>("IsMain");
+
+                    b.Property<string>("PublicId");
 
                     b.Property<string>("Url");
 
