@@ -8,7 +8,8 @@ namespace OnlineShop.API.Dtos
 		public string Name { get; set; }
 		public decimal Price { get; set; }
 		public bool IsNew { get; set; }
-		public string PhotoURL { get; set; }
+        public int Quantity { get; set; }
+        public string PhotoURL { get; set; }
 		public int IDManufacturer { get; set; }
 	}
 }

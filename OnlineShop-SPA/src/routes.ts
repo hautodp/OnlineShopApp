@@ -13,7 +13,6 @@ import { ProductListResolver } from './app/_resolvers/product-list.resolver';
 import { UserOrdersComponent } from './app/UserOrders/UserOrders.component';
 import { UserOderDetailComponent } from './app/UserOderDetail/UserOderDetail.component';
 
-
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'products', component: ProductListComponent,

@@ -2,10 +2,10 @@ namespace OnlineShop.API.Models
 {
     public class ProductSelection
     {
-        public int IdProduct { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string PhotoUrl { get; set; }
-        public int Quantity { get; set; }
+        public int idProduct { get; set; }
+        public string name { get; set; }
+        public decimal price { get; set; }
+        //public string photoURL { get; set; }
+        public int quantity { get; set; }
     }
 }

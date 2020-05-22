@@ -45,6 +45,7 @@ namespace OnlineShop.API.Data
 			}
 
 			//Filter products by Manufacturer
+
 			if (productParams.IdManufacturer != -1)
 			{
 				products = products.Where(pro => pro.manufacturer.IDManufacturer == productParams.IdManufacturer);
@@ -97,7 +98,6 @@ namespace OnlineShop.API.Data
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
-
 		//order controller
 		public async Task<IEnumerable<Order>> GetOrders()
 		{
@@ -153,7 +153,28 @@ namespace OnlineShop.API.Data
 			}
 			return 1;
 		}
+		
+public async Task<IEnumerable<Product>> GetAllProducts()
+        {
+            var products = await _context.Products.Include(p => p.Photos).ToListAsync();
+            return products;
+        }
 
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var photo = await _context.Photos.FirstOrDefaultAsync(x => x.Id == id);
+            return photo;
+        }
 
-	}
-}
+        public async Task<Photo> GetMainPhotoForProduct(int idProduct)
+        {
+            return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
+        }
+
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return users;
+        }
+
+	}}

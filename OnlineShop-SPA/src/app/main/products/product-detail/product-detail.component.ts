@@ -4,7 +4,7 @@ import { ProductService } from 'src/app/_services/product.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation} from '@kolkov/ngx-gallery';
-import { CartService } from 'src/app/_services/cart.service';
+import { Cart } from 'src/app/_models/Cart.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +17,7 @@ export class ProductDetailComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
 
   constructor(private productService: ProductService, private alertify: AlertifyService,
-              private route: ActivatedRoute, private cartService: CartService) { }
+              private route: ActivatedRoute, private cart: Cart) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -68,7 +68,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   handleAddToCart(){
-    this.cartService.addToCart(this.product);
+    this.cart.addProduct(this.product);
+    console.log(this.product);
   }
-
 }

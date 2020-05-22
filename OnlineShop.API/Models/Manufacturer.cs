@@ -10,7 +10,7 @@ namespace OnlineShop.API.Models
         public int IDManufacturer { get; set; }
         public string Name { get; set; } 
         public string Contact { get; set; } // Liên hệ
-        public bool IsAtive { get; set; } // Trạng thái
+        public bool? IsActive { get; set; } // Trạng thái
         public ICollection<Product> products{ get; set; }
     }
 }

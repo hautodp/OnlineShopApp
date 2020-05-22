@@ -30,13 +30,11 @@ import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ManufacturerListResolver } from './_resolvers/manufacturer-list.resolver';
 import { ManufacturerService } from './_services/manufacturer.service';
-import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 import { PaymentComponent } from './payment/payment.component';
-import { CartService } from './_services/cart.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { SessionService } from './_services/session.service';
-import { Repository } from './_models/Repository';
 import { Cart } from './_models/Cart.model';
+import { Repository } from './_models/Repository';
+import { ManufacturerListComponent } from './main/manufacturers/manufacturer-list/manufacturer-list.component';
 import { CommonModule } from '@angular/common';
 import { UserOderDetailComponent } from './UserOderDetail/UserOderDetail.component';
 import { UserOrdersComponent } from './UserOrders/UserOrders.component';
@@ -57,12 +55,10 @@ export function tokenGetter(){
       SliderComponent,
       ProductDetailComponent,
       InfoUserComponent,
-      ManufacturerListComponent,
       PaymentComponent,
       ShoppingCartComponent,
-      UserOderDetailComponent,
-      UserOrdersComponent
-   ],
+		UserOderDetailComponent,
+      UserOrdersComponent   ],
    imports: [
       CommonModule,
       BrowserModule,
@@ -97,10 +93,8 @@ export function tokenGetter(){
       PreventUnsavedChanges,
       ManufacturerListResolver,
       ManufacturerService,
-      CartService,
-      Repository,
       Cart,
-      SessionService,
+      Repository
       UserOrdersService,
       OrderDetailService
    ],

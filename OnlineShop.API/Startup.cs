@@ -38,32 +38,24 @@ namespace OnlineShop.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
-         
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                    .AddJsonOptions(opt =>{
-                        opt.SerializerSettings.ReferenceLoopHandling=
+                    .AddJsonOptions(opt =>
+                    {
+                        opt.SerializerSettings.ReferenceLoopHandling =
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.AddTransient<Seed>();
             services.AddAutoMapper(typeof(ShoppingRepository).Assembly);
+
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IShoppingRepository,ShoppingRepository>();
-
-            services.AddDistributedSqlServerCache(options => {
-            options.ConnectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            options.SchemaName = "dbo";
-            options.TableName = "SessionData";
-            });
-
-            services.AddSession(options => {
-            options.Cookie.Name = "OnlineShop.API.Session";
-            options.IdleTimeout = System.TimeSpan.FromHours(48);
-            options.Cookie.HttpOnly = false;
-            options.Cookie.IsEssential = true;
-            });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
@@ -76,13 +68,24 @@ namespace OnlineShop.API
                         ValidateAudience=false
                     };
             });
+
+            services.AddDistributedSqlServerCache(options => {
+                options.ConnectionString = connectionString;
+                options.SchemaName = "dbo";
+                options.TableName = "SessionData";
+            });
+            services.AddSession(options => {
+                options.Cookie.Name = "OnlineShop.Session";
+                options.IdleTimeout = System.TimeSpan.FromHours(48);
+                options.Cookie.HttpOnly = false;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
-            if (env.IsDevelopment())
+            app.UseSession();            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -102,10 +105,10 @@ namespace OnlineShop.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 // app.UseHsts();
             }
-            
+
+
             app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            
             app.UseAuthentication();
 			app.UseSession();
 			app.UseMvc();

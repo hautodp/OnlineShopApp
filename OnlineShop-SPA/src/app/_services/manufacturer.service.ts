@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Manufactuerer } from '../_models/Manufactuerer';
+import { Manufacturer } from '../_models/Manufacturer';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class ManufacturerService {
 
   constructor(private http: HttpClient) { }
 
-  getManufacturers(): Observable<Manufactuerer[]>{
-    return this.http.get<Manufactuerer[]>(this.baseUrl + 'manufacturers');
+  getManufacturers(): Observable<Manufacturer[]>{
+    return this.http.get<Manufacturer[]>(this.baseUrl + 'manufacturers');
   }
 }

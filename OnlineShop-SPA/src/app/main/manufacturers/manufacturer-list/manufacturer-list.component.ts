@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Manufactuerer } from 'src/app/_models/Manufactuerer';
+import { Manufacturer } from 'src/app/_models/Manufacturer';
 import { ManufacturerService } from 'src/app/_services/manufacturer.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { CategoryService } from 'src/app/_services/category.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./manufacturer-list.component.css']
 })
 export class ManufacturerListComponent implements OnInit {
-  manufacturers: Manufactuerer[];
+  manufacturers: Manufacturer[];
   constructor(private manufacturerService: ManufacturerService,
               private alertify: AlertifyService, private cateGory: CategoryService, private route: Router) { }
 
@@ -23,7 +23,7 @@ export class ManufacturerListComponent implements OnInit {
     this.route.navigate(['/products']);
   }
   loadManufacturers(){
-    this.manufacturerService.getManufacturers().subscribe((manufacturers: Manufactuerer[]) => {
+    this.manufacturerService.getManufacturers().subscribe((manufacturers: Manufacturer[]) => {
       this.manufacturers = manufacturers;
     }, error => {
       this.alertify.error(error);

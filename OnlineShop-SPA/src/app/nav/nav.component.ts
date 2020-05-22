@@ -5,7 +5,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../_models/User';
 import { SearchService } from '../_services/search.service';
-import { Manufactuerer } from '../_models/Manufactuerer';
 import { Cart } from '../_models/Cart.model';
 
 
