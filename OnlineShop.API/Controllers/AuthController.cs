@@ -48,7 +48,7 @@ namespace OnlineShop.API.Controllers {
             var createUser = await _repo.Register (userToCreate, userForRegisterDto.Password);
             var userToReturn=_mapper.Map<UserForDetailDto>(createUser);
 
-            return CreatedAtRoute("GetUser", new {controller="User", id=createUser.Id}, userToReturn);
+            return CreatedAtRoute("GetUser", new {controller="Users", id=createUser.Id}, userToReturn);
         }
 
         [HttpPost ("login")]

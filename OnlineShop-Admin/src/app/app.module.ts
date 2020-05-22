@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'ng2-file-upload';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
@@ -31,6 +32,11 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditComponent } from './product/photo-edit/photo-edit.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { UserService } from './_services/user.service';
+
+export function tokenGetter(){
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -56,7 +62,14 @@ import { EditProductComponent } from './product/edit-product/edit-product.compon
     TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        whitelistedDomains: ['localhost:5000'],
+        blacklistedRoutes: ['localhost:5000/api/auth']
+      }
+    })
   ],
   providers: [
     AuthService,
@@ -67,7 +80,8 @@ import { EditProductComponent } from './product/edit-product/edit-product.compon
     ManufacturerEditResolver,
     ProductService,
     ProductEditResolver,
-    PreventUnsavedChanges
+    PreventUnsavedChanges,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

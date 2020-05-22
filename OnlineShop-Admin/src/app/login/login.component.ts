@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.authService.login(this.model).subscribe(next => {
-      this.toastrService.success('Đăng nhập thành công');
+      this.toastrService.info('Đăng nhập thành công');
     }, error => {
       this.toastrService.error('Đăng nhập thất bại');
     }, () => {

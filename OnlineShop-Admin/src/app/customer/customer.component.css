@@ -1,0 +1,4 @@
+.text-danger:hover{
+  cursor: pointer;
+  color: red;
+}

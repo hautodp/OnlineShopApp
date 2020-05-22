@@ -15,6 +15,7 @@ namespace OnlineShop.API.Dtos
         public int Quantity { get; set; } // Số lượng còn
         public bool IsNew { get; set; }
         public string Description { get; set; } // mô tả
+        public int IDManufacturer { get; set; }
         public string PhotoURL { get; set; }
         public ICollection<PhotosForDetailDto> Photos{ get; set; } // album photos of product
     }

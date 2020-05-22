@@ -106,5 +106,11 @@ namespace OnlineShop.API.Data
         {
             return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
         }
+
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return users;
+        }
     }
 }

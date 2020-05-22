@@ -32,6 +32,8 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.product = data.product;
+      this.proSelected = this.product.idManufacturer;
+      console.log(this.product);
     });
 
     this.manufacturerService.getManufacturers().subscribe(result => {
@@ -40,8 +42,8 @@ export class EditProductComponent implements OnInit {
       this.toastrService.error(err);
     });
 
-    this.proSelected = 1;
-    console.log(this.proSelected);
+
+
   }
 
   updateProduct(){

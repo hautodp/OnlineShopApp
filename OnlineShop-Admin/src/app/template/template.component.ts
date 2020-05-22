@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-template',
@@ -8,13 +10,16 @@ import { AuthService } from '../_services/auth.service';
 })
 export class TemplateComponent implements OnInit {
 
-  constructor(public authSerice: AuthService) { }
+  constructor(public authSerice: AuthService, private toastrService: ToastrService,
+              private router: Router ) { }
 
   ngOnInit(): void {
   }
 
-  logout(){
+  logOut(){
     localStorage.removeItem('token');
-    console.log('Đăng xuất thành công!');
+    // this.alertify.message('Thoát');
+    this.toastrService.success('Đăng xuất thành công');
+    this.router.navigate(['admin/login']);
   }
 }

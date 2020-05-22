@@ -23,6 +23,7 @@ namespace OnlineShop.API.Helpers
             CreateMap<Photo, PhotosForDetailDto>();
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<User, UserForListDto>();
 
             CreateMap<Manufacturer, ManufacturerForListDto>();
             CreateMap<Manufacturer, Manufacturer>();

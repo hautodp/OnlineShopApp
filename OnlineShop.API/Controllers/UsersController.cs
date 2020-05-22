@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -6,20 +7,30 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController: ControllerBase
+    public class UsersController: ControllerBase
     {
         private readonly IShoppingRepository _repo;
         private readonly IMapper _mapper;
-        public UserController(IShoppingRepository repo, IMapper mapper)
+        public UsersController(IShoppingRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _repo.GetUsers();
+
+            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            return Ok(usersToReturn);
         }
 
         [HttpGet("{id}", Name="GetUser")]
@@ -44,6 +55,22 @@ namespace OnlineShop.API.Controllers
                 return NoContent();
             
             throw new Exception($"Cập nhập user {id} thất bại");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<User>> DeleteUser(int id)
+        {
+            var user = await _repo.GetUser(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _repo.Delete<User>(user);
+            await _repo.SaveAll();
+
+            return user;
         }
     }
 }

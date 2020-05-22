@@ -56,7 +56,7 @@
                   <!-- <select [(ngModel)]="selectedLevel" (change)="selected()">
                     <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
                   </select> -->
-                    <select name="idManufacturer" [(ngModel)]="product.idManufacturer">
+                    <select name="proSelected" [(ngModel)]="proSelected">
                       <option *ngFor="let item of manufacturers" [ngValue]="item.idManufacturer">{{item.name}}</option>
                     </select>
                 </div>
