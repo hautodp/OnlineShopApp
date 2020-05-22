@@ -16,6 +16,7 @@ namespace OnlineShop.API.Data
 		
 		Task<PagedList<Product>> GetProducts(ProductParams productParams);
 		Task<Product> GetProduct(int id);
+		Task<IEnumerable<Product>> GetAllProducts();
 
 		// User
 		Task<User> GetUser(int id);

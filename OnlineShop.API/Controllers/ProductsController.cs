@@ -32,6 +32,14 @@ namespace OnlineShop.API.Controllers
 			return Ok(productsToReturn);
 		}
 
+		[HttpGet("GetAll")]
+		public async Task<IActionResult> GetAllProducts()
+		{
+			var products = await _repo.GetAllProducts();
+			var productsToReturn = _mapper.Map<IEnumerable<ProductForListDto>>(products);
+			return Ok(productsToReturn);
+		}
+
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetProduct(int id)
 		{

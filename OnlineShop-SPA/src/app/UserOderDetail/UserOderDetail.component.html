@@ -22,7 +22,7 @@
                     <thead>
                       <tr>
                         <th>Mã đơn hàng</th>
-                        <th>Mã sản phẩm</th>
+                        <th colspan="2" style="text-align: center;">Sản phẩm</th>
                         <th>Số lượng đặt</th>
                         <th>Đơn giá sản phẩm</th>
                         <th>Thanh toán</th>
@@ -31,7 +31,8 @@
                     <tbody>
                       <tr *ngFor="let sel of listOrderDetail">
                         <td>{{sel.idOrder}}</td>
-                        <td>{{sel.idProduct}}</td>
+                        <td *ngIf="isMatch(sel.idProduct)"><img src="{{this.photoURL}}" alt="{{this.productName}}"></td>
+                        <td *ngIf="isMatch(sel.idProduct)">{{this.productName}}</td>
                         <td>{{sel.quantity}}</td>
                         <td>{{sel.unitPrice |currency:'VND'}}</td>
                         <td>{{sel.unitPrice*sel.quantity | currency:'VND'}}</td>

@@ -64,6 +64,12 @@ namespace OnlineShop.API.Data
 			return await PagedList<Product>.CreateAsync(products, productParams.PageNumber, productParams.PageSize);
 		}
 
+		public async Task<IEnumerable<Product>> GetAllProducts()
+		{
+			var products = await _context.Products.Include(p => p.Photos).ToListAsync();
+			return products;
+		} 
+
 		public async Task<bool> SaveAll()
 		{
 			return await _context.SaveChangesAsync()>0;
