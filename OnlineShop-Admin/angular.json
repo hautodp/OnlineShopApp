@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "OnlineShop-Admin"
+    }
+  },
+  "defaultProject": "OnlineShop-Admin",
+  "cli": {
+    "analytics": false
+  }
 }

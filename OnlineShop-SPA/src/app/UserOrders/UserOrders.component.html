@@ -28,6 +28,7 @@
                         <th>Địa chỉ</th>
                         <th>Ngày đặt</th>
                         <th>Thanh toán</th>
+                        <th>Trạng thái hóa đơn</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -39,11 +40,13 @@
                         <td>{{sel.address}}</td>
                         <td>{{sel.orderDate}}</td>
                         <td>{{sel.paid}}</td>
+                        <td *ngIf="sel.orderState == 1">Đang chờ xác nhận</td>
+                        <td *ngIf="sel.orderState != 1"> Đang giao hàng</td>
                       </tr>
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th colspan="6">Tổng đơn hàng đã đặt:</th>
+                        <th colspan="7">Tổng đơn hàng đã đặt:</th>
                         <th colspan="2">{{listOrders.length}} đơn hàng</th>
                       </tr>
                     </tfoot>
