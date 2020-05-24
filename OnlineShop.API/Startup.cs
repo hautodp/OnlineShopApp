@@ -85,7 +85,7 @@ namespace OnlineShop.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseSession();            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -106,12 +106,13 @@ namespace OnlineShop.API
                 // app.UseHsts();
             }
 
-            // app.UseHttpsRedirection();
+
+            app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
+			app.UseSession();
+			app.UseMvc();
 
-            app.UseSession();
-            app.UseMvc();
         }
     }
 }

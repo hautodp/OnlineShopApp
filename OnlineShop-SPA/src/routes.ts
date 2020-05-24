@@ -10,6 +10,8 @@ import { PaymentComponent } from './app/payment/payment.component';
 import { ShoppingCartComponent } from './app/shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './app/main/products/product-list/product-list.component';
 import { ProductListResolver } from './app/_resolvers/product-list.resolver';
+import { UserOrdersComponent } from './app/UserOrders/UserOrders.component';
+import { UserOderDetailComponent } from './app/UserOderDetail/UserOderDetail.component';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -19,7 +21,7 @@ export const appRoutes: Routes = [
         resolve: {product: ProductDetailResolver}},
     { path: '',   redirectTo: '/home', pathMatch: 'full'},
     {path: 'cart', component: ShoppingCartComponent},
-    {path: 'payment', component: PaymentComponent},
+    //
     // { path: '',   redirectTo: '/home', pathMatch: 'full' },
     {
       path: '',
@@ -28,6 +30,9 @@ export const appRoutes: Routes = [
       children: [
         {path: 'user/edit', component: InfoUserComponent, resolve: {user: UserEditResolver},
           canDeactivate: [PreventUnsavedChanges]},
+          {path: 'payment', component: PaymentComponent},
+          {path: 'payment/order', component: UserOrdersComponent},
+          {path: 'payment/order/detail/:idOrder', component: UserOderDetailComponent}
       ]
     },
     // {path: '**', redirectTo: 'home', pathMatch: 'full'}

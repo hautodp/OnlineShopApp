@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using OnlineShop.API.Dtos;
 using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
@@ -16,7 +17,7 @@ namespace OnlineShop.API.Data
 		
 		Task<PagedList<Product>> GetProducts(ProductParams productParams);
 		Task<Product> GetProduct(int id);
-        Task<IEnumerable<Product>> GetAllProducts();
+	Task<IEnumerable<Product>> GetAllProducts();
 
         // User
         Task<IEnumerable<User>> GetUsers();
@@ -28,5 +29,12 @@ namespace OnlineShop.API.Data
 		Task<IEnumerable<Manufacturer>> GetManufacturers();
 		Task<Manufacturer> GetManufacturer(int id);
 		Task<Product> FindProduct(int id);
-    }
+		//Order
+		Task<IEnumerable<Order>> GetOrders();
+		Task<IEnumerable<Order>> GetOrdersByUserID(int UserID);
+		Task<int> CreateOrder(OrderForPaymentDto orderFor);
+
+		//Order Detail
+		Task<int> CreateOrderDetail(int IdOrder, ProductSelection[] productSelections);
+		Task<IEnumerable<OrderDetail>> GetOrderDetails(int OrderID);
 }

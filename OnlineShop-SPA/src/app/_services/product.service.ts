@@ -49,6 +49,11 @@ export class ProductService {
   getProduct(idProduct): Observable<Product>{
     return this.http.get<Product>(this.baseUrl + 'products/' + idProduct);
   }
+
+  // tslint:disable-next-line: adjacent-overload-signatures
+  getAllProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl + 'products/GetAll/');
+  }
 }
 
 

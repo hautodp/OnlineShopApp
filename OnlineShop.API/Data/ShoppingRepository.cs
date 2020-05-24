@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using OnlineShop.API.Dtos;
 using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
@@ -62,6 +65,12 @@ namespace OnlineShop.API.Data
 			return await PagedList<Product>.CreateAsync(products, productParams.PageNumber, productParams.PageSize);
 		}
 
+		public async Task<IEnumerable<Product>> GetAllProducts()
+		{
+			var products = await _context.Products.Include(p => p.Photos).ToListAsync();
+			return products;
+		} 
+
 		public async Task<bool> SaveAll()
 		{
 			return await _context.SaveChangesAsync()>0;
@@ -89,8 +98,63 @@ namespace OnlineShop.API.Data
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
 		}
+		//order controller
+		public async Task<IEnumerable<Order>> GetOrders()
+		{
+			var orders = await _context.Orders.ToListAsync();
+			return orders;
+		}
 
-        public async Task<IEnumerable<Product>> GetAllProducts()
+		public async Task<IEnumerable<Order>> GetOrdersByUserID(int id)
+		{
+			var orders = _context.Orders.AsQueryable();
+			var ordersByUserID = orders.Where(o => o.IdUser == id);
+			return ordersByUserID;
+		}
+
+		public async Task<IEnumerable<OrderDetail>> GetOrderDetails(int OrderID)
+		{
+			var detailOrders = _context.OrderDetails.AsQueryable();
+			var targetDetailOrders = detailOrders.Where(detail => detail.IDOrder == OrderID);
+			return targetDetailOrders;
+		}
+
+		public async Task<int> CreateOrder(OrderForPaymentDto orderFor)
+		{
+			DateTime today = DateTime.Now;
+			Order order = new Order();
+			order.Address = orderFor.Address;
+			order.Email = orderFor.Email;
+			order.IdUser = orderFor.IdUser;
+			order.OrderState = 1;
+			order.Paid = "Chua thanh toan";
+			order.PhoneNumber = orderFor.PhoneNumber;
+			order.Receiver = orderFor.Receiver;
+			order.OrderDate = today;
+			order.DeliveryDate = today.AddDays(3);
+			await _context.Orders.AddAsync(order);
+			await _context.SaveChangesAsync();
+			return order.IDOrder;
+		}
+
+		//create Order Detail
+		public async Task<int> CreateOrderDetail(int IdOrder, ProductSelection[] productSelections)
+		{
+			var listProducts = productSelections;
+			foreach (ProductSelection orderDetail in listProducts)
+			{
+				OrderDetail detail = new OrderDetail();
+				detail.IDOrder = IdOrder;
+				detail.IDProduct = orderDetail.IdProduct;
+				detail.Quantity = orderDetail.Quantity;
+				detail.UnitPrice = orderDetail.Price;
+				await _context.OrderDetails.AddAsync(detail);
+				await _context.SaveChangesAsync();
+			}
+			return 1;
+		}
+		
+public async Task<IEnumerable<Product>> GetAllProducts()
         {
             var products = await _context.Products.Include(p => p.Photos).ToListAsync();
             return products;
@@ -112,5 +176,5 @@ namespace OnlineShop.API.Data
             var users = await _context.Users.ToListAsync();
             return users;
         }
-    }
-}
+
+	}}
