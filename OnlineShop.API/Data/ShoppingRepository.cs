@@ -153,12 +153,6 @@ namespace OnlineShop.API.Data
 			}
 			return 1;
 		}
-		
-public async Task<IEnumerable<Product>> GetAllProducts()
-        {
-            var products = await _context.Products.Include(p => p.Photos).ToListAsync();
-            return products;
-        }
 
         public async Task<Photo> GetPhoto(int id)
         {

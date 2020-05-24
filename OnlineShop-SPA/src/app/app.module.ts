@@ -57,8 +57,10 @@ export function tokenGetter(){
       InfoUserComponent,
       PaymentComponent,
       ShoppingCartComponent,
-		UserOderDetailComponent,
-      UserOrdersComponent   ],
+	    UserOderDetailComponent,
+      UserOrdersComponent,
+      ManufacturerListComponent
+    ],
    imports: [
       CommonModule,
       BrowserModule,
@@ -94,7 +96,7 @@ export function tokenGetter(){
       ManufacturerListResolver,
       ManufacturerService,
       Cart,
-      Repository
+      Repository,
       UserOrdersService,
       OrderDetailService
    ],

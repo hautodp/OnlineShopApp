@@ -37,12 +37,12 @@ namespace OnlineShop.API.Controllers
 
             _cloudinary = new Cloudinary(acc);
         }
-		[HttpGet("{id}")]
-		public async Task<IActionResult> GetProduct(int id)
-		{
-			var product = await _repo.GetProduct(id);
-			var productToReturn =_mapper.Map<ProductForDetailDto>(product);
-	}
+	//	[HttpGet("{id}")]
+	//	public async Task<IActionResult> GetProduct(int id)
+	//	{
+	//		var product = await _repo.GetProduct(id);
+	//		var productToReturn =_mapper.Map<ProductForDetailDto>(product);
+	//}
 
         [HttpGet]
         public async Task<IActionResult> GetProducts([FromQuery] ProductParams productParams)
