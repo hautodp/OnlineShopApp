@@ -33,6 +33,8 @@ import { PhotoEditComponent } from './product/photo-edit/photo-edit.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { UserService } from './_services/user.service';
+import { DetailedOrderComponent } from './order/detailedOrder/detailedOrder.component';
+import { OrdersService } from './_services/orders.service';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -52,7 +54,9 @@ export function tokenGetter(){
     UpdateManufacturerComponent,
     EditProductComponent,
     PhotoEditComponent,
-    AddProductComponent
+    AddProductComponent,
+    OrderComponent,
+    DetailedOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,8 @@ export function tokenGetter(){
     ProductService,
     ProductEditResolver,
     PreventUnsavedChanges,
-    UserService
+    UserService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })

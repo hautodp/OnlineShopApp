@@ -105,6 +105,12 @@ namespace OnlineShop.API.Data
 			return orders;
 		}
 
+		public async Task<Order> GetOrderById(int id)
+		{
+			var order = await _context.Orders.FirstOrDefaultAsync( o => o.IDOrder == id);
+			return order;
+		}
+
 		public async Task<IEnumerable<Order>> GetOrdersByUserID(int id)
 		{
 			var orders = _context.Orders.AsQueryable();
@@ -154,21 +160,21 @@ namespace OnlineShop.API.Data
 			return 1;
 		}
 
-        public async Task<Photo> GetPhoto(int id)
-        {
-            var photo = await _context.Photos.FirstOrDefaultAsync(x => x.Id == id);
-            return photo;
-        }
+		public async Task<Photo> GetPhoto(int id)
+		{
+			var photo = await _context.Photos.FirstOrDefaultAsync(x => x.Id == id);
+			return photo;
+		}
 
-        public async Task<Photo> GetMainPhotoForProduct(int idProduct)
-        {
-            return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
-        }
+		public async Task<Photo> GetMainPhotoForProduct(int idProduct)
+		{
+			return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
+		}
 
-        public async Task<IEnumerable<User>> GetUsers()
-        {
-            var users = await _context.Users.ToListAsync();
-            return users;
-        }
+		public async Task<IEnumerable<User>> GetUsers()
+		{
+			var users = await _context.Users.ToListAsync();
+			return users;
+		}
 
 	}}

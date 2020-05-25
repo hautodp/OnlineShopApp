@@ -14,6 +14,7 @@ import { ProductEditResolver } from 'src/app/_resolvers/product-edit.resolver';
 import { PreventUnsavedChanges } from 'src/app/_guards/prevent-unsaved-changes.guard';
 import { AddProductComponent } from 'src/app/product/add-product/add-product.component';
 import { EditProductComponent } from 'src/app/product/edit-product/edit-product.component';
+import { DetailedOrderComponent } from 'src/app/order/detailedOrder/detailedOrder.component';
 
 const childRoutes: Routes = [
   {
@@ -27,6 +28,7 @@ const childRoutes: Routes = [
       { path: 'products/:id', component: EditProductComponent,
           resolve: {product: ProductEditResolver}, canDeactivate: [PreventUnsavedChanges]},
       { path: 'orders', component: OrderComponent},
+      { path: 'orders/detail', component: DetailedOrderComponent},
       { path: 'customers', component: CustomerComponent},
       { path: 'manufacturers', component: ManufacturerComponent},
       { path: 'manufacturers/add', component: AddManufacturerComponent},

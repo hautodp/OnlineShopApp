@@ -1,4 +1,4 @@
-﻿using System;
+﻿	using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +60,18 @@ namespace OnlineShop.API.Controllers
 			return Ok(listOrderDetails);
 		}
 
+		[HttpPut("{id}/{state}")]
+		public async Task<IActionResult> UpdateOrder(int id, int state)
+		{
+			var orderFromRepo = await _repo.GetOrderById(id);
+			var orderUpated = orderFromRepo;
+			orderUpated.OrderState = state;
+			_mapper.Map(orderUpated, orderFromRepo);
 
+			if (await _repo.SaveAll())
+				return NoContent();
+
+			throw new Exception($"Duyệt hóa đơn = {id} thất bại.");
+		}
 	}
 }
