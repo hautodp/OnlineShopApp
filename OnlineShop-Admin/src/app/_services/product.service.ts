@@ -46,4 +46,7 @@ export class ProductService {
   deleteProduct(id: number){
     return this.http.delete(this.baseUrl + 'products/' + id, {});
   }
+  getAllProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl + 'products/GetAll/');
+  }
 }

@@ -28,7 +28,7 @@ const childRoutes: Routes = [
       { path: 'products/:id', component: EditProductComponent,
           resolve: {product: ProductEditResolver}, canDeactivate: [PreventUnsavedChanges]},
       { path: 'orders', component: OrderComponent},
-      { path: 'orders/detail', component: DetailedOrderComponent},
+      { path: 'orders/detail/:idOrder', component: DetailedOrderComponent},
       { path: 'customers', component: CustomerComponent},
       { path: 'manufacturers', component: ManufacturerComponent},
       { path: 'manufacturers/add', component: AddManufacturerComponent},

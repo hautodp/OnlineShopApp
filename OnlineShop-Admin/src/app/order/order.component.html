@@ -31,7 +31,7 @@
                   </thead>
                   <tbody>
                     <tr id="row_1" *ngFor="let order of listOrders">
-                      <td>{{order.idOrder}}</td>
+                      <td><a [routerLink]="['detail/', order.idOrder]">{{order.idOrder}}</a></td>
                       <td>{{order.receiver}}</td>
                       <td>{{order.phoneNumber}}</td>
                       <td>{{order.email}}</td>
