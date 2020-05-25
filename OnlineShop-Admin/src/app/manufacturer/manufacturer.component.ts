@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Manufacturer } from '../_models/Manufacturer';
 import { ManufacturerService } from '../_services/manufacturer.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { ToastrService } from 'ngx-toastr';
+import { Pagination, PaginatedResult } from '../_models/Pagination';
 
 @Component({
   selector: 'app-manufacturer',
@@ -12,11 +13,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManufacturerComponent implements OnInit {
   manufacturers: Manufacturer[];
-  constructor(private router: Router, private manufacturerService: ManufacturerService,
+  manufacturerParams: any = {};
+  pagination: Pagination;
+  constructor(private router: Router, private manufacturerService: ManufacturerService, private route: ActivatedRoute,
               private alertifyService: AlertifyService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.loadManufacturers();
+    this.route.data.subscribe(data => {
+      this.manufacturers = data.manufacturers.result;
+      this.pagination = data.manufacturers.pagination;
+    });
+
+    this.manufacturerParams.name= '';
   }
 
   navigateToHome(){
@@ -24,11 +32,19 @@ export class ManufacturerComponent implements OnInit {
   }
 
   loadManufacturers(){
-    this.manufacturerService.getManufacturers().subscribe((manufacturers: Manufacturer[]) => {
-      this.manufacturers = manufacturers;
+    this.manufacturerService
+      .getManufacturers(this.pagination.currentPage, this.pagination.itemsPerPage, this.manufacturerParams)
+      .subscribe((res: PaginatedResult<Manufacturer[]>) => {
+        this.manufacturers = res.result;
+        this.pagination = res.pagination;
     }, error => {
       this.toastrService.error(error);
     });
+  }
+
+  pageChanged(event: any){
+    this.pagination.currentPage = event.page;
+    this.loadManufacturers();
   }
 
   deleteManufacturer(id: number){

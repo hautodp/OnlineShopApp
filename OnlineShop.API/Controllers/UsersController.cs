@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers
@@ -25,11 +26,14 @@ namespace OnlineShop.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {
-            var users = await _repo.GetUsers();
+            var users = await _repo.GetUsers(userParams);
 
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            Response.AddPagination(users.CurrentPage, users.PageSize,
+                users.TotalCount, users.TotalPages);
+
             return Ok(usersToReturn);
         }
 

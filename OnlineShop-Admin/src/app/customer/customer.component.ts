@@ -3,6 +3,8 @@ import { User } from '../_models/User';
 import { UserService } from '../_services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { AlertifyService } from '../_services/alertify.service';
+import { Pagination, PaginatedResult } from '../_models/Pagination';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -11,21 +13,44 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class CustomerComponent implements OnInit {
   users: User[];
-
+  userParams: any = {};
+  pagination: Pagination;
   constructor(private userService: UserService, private toastrService: ToastrService,
-              private alertifyService: AlertifyService) { }
+              private alertifyService: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      this.users = data.customers.result;
+      this.pagination = data.customers.pagination;
+    });
+
+    this.userParams.name = '';
+  }
+
+  // loadUsers(){
+  //   this.userService.getUsers().subscribe((users: User[]) => {
+  //     this.users = users;
+  //   }, err => {
+  //     this.toastrService.error(err);
+  //   });
+  // }
+
+  loadUsers(){
+    this.userService
+      .getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
+      .subscribe((res: PaginatedResult<User[]>) => {
+        this.users = res.result;
+        this.pagination = res.pagination;
+    }, error => {
+      this.toastrService.error(error);
+    });
+  }
+
+  pageChanged(event: any){
+    this.pagination.currentPage = event.page;
     this.loadUsers();
   }
 
-  loadUsers(){
-    this.userService.getUsers().subscribe((users: User[]) => {
-      this.users = users;
-    }, err => {
-      this.toastrService.error(err);
-    });
-  }
 
   deleteUser(id: number){
     this.alertifyService.confirm('Bạn có muốn xóa dòng vừa chọn', () => {

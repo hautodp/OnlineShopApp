@@ -33,11 +33,10 @@ export class EditProductComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.product = data.product;
       this.proSelected = this.product.idManufacturer;
-      console.log(this.product);
     });
 
-    this.manufacturerService.getManufacturers().subscribe(result => {
-      this.manufacturers = result;
+    this.manufacturerService.getManufacturers().subscribe(data => {
+      this.manufacturers = data.result;
     }, err => {
       this.toastrService.error(err);
     });

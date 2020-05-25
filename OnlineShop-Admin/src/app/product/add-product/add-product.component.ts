@@ -31,8 +31,8 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.manufacturerService.getManufacturers().subscribe(result => {
-        this.manufacturers = result;
+    this.manufacturerService.getManufacturers().subscribe(data => {
+        this.manufacturers = data.result;
       }, err => {
         this.toastrService.error(err);
     });

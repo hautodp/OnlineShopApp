@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.API.Data;
 using OnlineShop.API.Dtos;
+using OnlineShop.API.Helpers;
 using OnlineShop.API.Models;
 
 namespace OnlineShop.API.Controllers
@@ -23,11 +24,14 @@ namespace OnlineShop.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetManufacturers()
+        public async Task<IActionResult> GetManufacturers([FromQuery]ManufacturerParams manufacturerParams)
         {
-            var manufacturers = await _repo.GetManufacturers();
+            var manufacturers = await _repo.GetManufacturers(manufacturerParams);
 
             var manufacturersToReturn=_mapper.Map<IEnumerable<ManufacturerForListDto>>(manufacturers);
+            Response.AddPagination(manufacturers.CurrentPage, manufacturers.PageSize,
+                manufacturers.TotalCount, manufacturers.TotalPages);
+
             return Ok(manufacturersToReturn);
         }
 

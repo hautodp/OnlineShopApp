@@ -8,11 +8,14 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ManufacturerListResolver implements Resolve<Manufacturer[]>{
+  pageNumber = 1;
+  pageSize = 2;
+
   constructor(private manufacturerService: ManufacturerService,
               private router: Router, private toastrService: ToastrService){}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Manufacturer[]>{
-    return this.manufacturerService.getManufacturers().pipe(
+    return this.manufacturerService.getManufacturers(this.pageNumber, this.pageSize).pipe(
       catchError(error => {
         this.toastrService.error('Problem retrieving data');
         this.router.navigate(['admin/home']);
