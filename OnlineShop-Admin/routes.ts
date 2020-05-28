@@ -10,12 +10,14 @@ import { AuthGuard } from 'src/app/_guards/auth.guard';
 import { AddManufacturerComponent } from 'src/app/manufacturer/add-manufacturer/add-manufacturer.component';
 import { UpdateManufacturerComponent } from 'src/app/manufacturer/update-manufacturer/update-manufacturer.component';
 import { ManufacturerEditResolver } from 'src/app/_resolvers/manufacturer-edit.resolver';
+import {ManufacturerListResolver} from 'src/app/_resolvers/manufacturer-list.resolver';
 import { ProductEditResolver } from 'src/app/_resolvers/product-edit.resolver';
 import { PreventUnsavedChanges } from 'src/app/_guards/prevent-unsaved-changes.guard';
 import { AddProductComponent } from 'src/app/product/add-product/add-product.component';
 import { EditProductComponent } from 'src/app/product/edit-product/edit-product.component';
+import { UserListResolver } from 'src/app/_resolvers/user-list.resolver';
+import { ProductListResolver } from 'src/app/_resolvers/product-list.resolver';
 import { DetailedOrderComponent } from 'src/app/order/detailedOrder/detailedOrder.component';
-
 const childRoutes: Routes = [
   {
     path: '',
@@ -23,15 +25,16 @@ const childRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent},
-      { path: 'products', component: ProductComponent},
+      { path: 'products', component: ProductComponent,
+        resolve: {products: ProductListResolver}},
       { path: 'products/add', component: AddProductComponent},
       { path: 'products/:id', component: EditProductComponent,
           resolve: {product: ProductEditResolver}, canDeactivate: [PreventUnsavedChanges]},
       { path: 'orders', component: OrderComponent},
       { path: 'orders/detail/:idOrder', component: DetailedOrderComponent},
       { path: 'customers', component: CustomerComponent},
-      { path: 'manufacturers', component: ManufacturerComponent},
-      { path: 'manufacturers/add', component: AddManufacturerComponent},
+      { path: 'manufacturers', component: ManufacturerComponent,
+        resolve: {manufacturers: ManufacturerListResolver}},      { path: 'manufacturers/add', component: AddManufacturerComponent},
       { path: 'manufacturers/:id', component: UpdateManufacturerComponent, resolve: {manufacturer: ManufacturerEditResolver}},
       { path: '', component: HomeComponent}
     ]

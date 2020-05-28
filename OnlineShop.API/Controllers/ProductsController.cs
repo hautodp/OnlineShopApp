@@ -63,11 +63,22 @@ namespace OnlineShop.API.Controllers
 			return Ok(productToReturn);
 		}
 
-		[HttpGet("GetAll")]
-		public async Task<IActionResult> GetAllProducts()
-		{
-			var products = await _repo.GetAllProducts();
+        [HttpGet("ForAdmin")]
+        public async Task<IActionResult> GetProductsForAdmin([FromQuery]ProductParamsForAdmin productParamsForAdmin)
+        {
+            var products = await _repo.GetProductsForAdmin(productParamsForAdmin);
 
+            var productsToReturn = _mapper.Map<IEnumerable<ProductForListDto>>(products);
+            Response.AddPagination(products.CurrentPage, products.PageSize,
+                products.TotalCount, products.TotalPages);
+
+            return Ok(productsToReturn);
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var products = await _repo.GetAllProducts();
 			var productsToReturn = _mapper.Map<IEnumerable<ProductForListDto>>(products);
 			return Ok(productsToReturn);
 		}

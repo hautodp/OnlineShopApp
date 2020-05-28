@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'ng2-file-upload';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -34,8 +35,8 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { UserService } from './_services/user.service';
 import { DetailedOrderComponent } from './order/detailedOrder/detailedOrder.component';
-import { OrdersService } from './_services/orders.service';
-
+import { OrdersService } from './_services/orders.service';import { UserListResolver } from './_resolvers/user-list.resolver';
+import { ProductListResolver } from './_resolvers/product-list.resolver';
 export function tokenGetter(){
   return localStorage.getItem('token');
 }
@@ -64,6 +65,7 @@ export function tokenGetter(){
     FormsModule,
     FileUploadModule,
     TabsModule.forRoot(),
+    PaginationModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
@@ -80,6 +82,8 @@ export function tokenGetter(){
     ErrorInterceptorProvider,
     ManufacturerListResolver,
     ManufacturerService,
+    UserListResolver,
+    ProductListResolver,
     AlertifyService,
     ManufacturerEditResolver,
     ProductService,

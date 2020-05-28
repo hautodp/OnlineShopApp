@@ -87,13 +87,27 @@ namespace OnlineShop.API.Data
 			var manufacturer = await _context.Manufacturers.FirstOrDefaultAsync(m=>m.IDManufacturer==id);
 			return manufacturer;
 		}
-		public async Task<IEnumerable<Manufacturer>> GetManufacturers()
-		{
-			var manufacturers = await _context.Manufacturers.ToListAsync();
-			return manufacturers;
-		}
 
-		public async Task<Product> FindProduct(int id)
+        //public async Task<IEnumerable<Manufacturer>> GetManufacturers()
+        //{
+        //	var manufacturers = await _context.Manufacturers.ToListAsync();
+        //	return manufacturers;
+        //}
+
+        public async Task<PagedList<Manufacturer>> GetManufacturers(ManufacturerParams manufacturerParams)
+        {
+            var manufacturers = _context.Manufacturers.AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(manufacturerParams.Name) && !(manufacturerParams.Name == "null"))
+            {
+                manufacturers = manufacturers.Where(m => m.Name.Contains(manufacturerParams.Name));
+            }
+
+            return await PagedList<Manufacturer>.CreateAsync(manufacturers,manufacturerParams.PageNumber, manufacturerParams.PageSize);
+        }
+
+        public async Task<Product> FindProduct(int id)
 		{
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
@@ -171,10 +185,27 @@ namespace OnlineShop.API.Data
 			return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
 		}
 
-		public async Task<IEnumerable<User>> GetUsers()
-		{
-			var users = await _context.Users.ToListAsync();
-			return users;
-		}
+        public async Task<PagedList<User>> GetUsers(UserParams userParams)
+        {
+            var users = _context.Users.AsQueryable();
 
-	}}
+            if (!string.IsNullOrEmpty(userParams.Name) && !(userParams.Name == "null"))
+            {
+                users = users.Where(u => u.Username.Contains(userParams.Name));
+            }
+
+            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
+        }
+        public async Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin)
+        {
+            var products = _context.Products.AsQueryable();
+
+            if (!string.IsNullOrEmpty(productParamsForAdmin.Name) && !(productParamsForAdmin.Name == "null"))
+            {
+                products = products.Where(p => p.Name.Contains(productParamsForAdmin.Name));
+            }
+
+            return await PagedList<Product>.CreateAsync(products, productParamsForAdmin.PageNumber, productParamsForAdmin.PageSize);
+        }
+    }
+}

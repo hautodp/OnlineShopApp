@@ -15,24 +15,23 @@ namespace OnlineShop.API.Data
 
 		// Product
 
-		Task<PagedList<Product>> GetProducts(ProductParams productParams);
-		Task<Product> GetProduct(int id);
-		Task<IEnumerable<Product>> GetAllProducts();
-
-		// User
-		Task<IEnumerable<User>> GetUsers();
-		Task<User> GetUser(int id);
-		Task<Photo> GetPhoto(int id);
-		Task<Photo> GetMainPhotoForProduct(int idProduct);
-
-		// Manufacturer
-		Task<IEnumerable<Manufacturer>> GetManufacturers();
-		Task<Manufacturer> GetManufacturer(int id);
-		Task<Product> FindProduct(int id);
-		//Order
+        Task<PagedList<Product>> GetProducts(ProductParams productParams);
+        Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin);
+        Task<Product> GetProduct(int id);
+        Task<IEnumerable<Product>> GetAllProducts();
+        // User
+        Task<PagedList<User>> GetUsers(UserParams userParams);
+        Task<User> GetUser(int id);
+        Task<Photo> GetPhoto(int id);
+        Task<Photo> GetMainPhotoForProduct(int idProduct);
+        // Manufacturer
+        //Task<IEnumerable<Manufacturer>> GetManufacturers();
+        Task<PagedList<Manufacturer>> GetManufacturers(ManufacturerParams manufacturerParams);
+        Task<Manufacturer> GetManufacturer(int id);
+        Task<Product> FindProduct(int id);		//Order
 		Task<IEnumerable<Order>> GetOrders();
-		Task<Order> GetOrderById(int id);
 		Task<IEnumerable<Order>> GetOrdersByUserID(int UserID);
+		Task<Order> GetOrderById(int id);
 		Task<int> CreateOrder(OrderForPaymentDto orderFor);
 
 		//Order Detail
