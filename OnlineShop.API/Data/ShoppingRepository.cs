@@ -220,5 +220,11 @@ namespace OnlineShop.API.Data
 
 			return await PagedList<Product>.CreateAsync(products, productParamsForAdmin.PageNumber, productParamsForAdmin.PageSize);
 		}
+		public async Task<IEnumerable<Product>> GetNewProducts()
+		{
+			var products = _context.Products.Include(p => p.Photos).AsQueryable();
+			products = products.Where(p => p.IsNew == true);
+			return products;
+		}
 	}
 }

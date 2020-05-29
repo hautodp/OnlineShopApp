@@ -1,1 +1,44 @@
 <app-slider></app-slider>
+<div *ngIf="listNewProducts.length > 0" class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-header row">
+      <i class="fas fa-table"></i>
+      Sản phẩm mới
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div *ngFor="let product of listNewProducts" class="col-lg-3 col-md-3 col-sm-6">
+          <app-product [product]="product"></app-product>
+        </div>
+    </div>
+  </div>
+</div>
+<footer>
+	<div class="container-fluid">
+		<div class="row text-center mt-6">
+			<div class="col-md-4 col-sm-6" >
+				<h5>Thành viên</h5>
+				<hr class="light">
+				<p>Trần Quốc Toàn</p>
+				<p>Tô Công Hậu</p>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<h5>Công nghệ .Net</h5>
+				<hr class="light">
+				<p>Đề tài: Website bán Laptop</p>
+				<p>Nhóm thực hiện: Nhóm 14</p>
+				<p>GVHD: Nguyễn Thị Thanh Trúc</p>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<h5>Thông tin liên lạc</h5>
+				<hr class="light">
+				<p><span><i class="far fa-envelope"></i></span>Email: dpsg.webapp@gmail.com</p>
+				<p><span><i class="fas fa-phone"></i></span>Phone: 0935270629</p>
+				<p>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.227417615001!2d106.80126261415018!3d10.870299992257882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9ad5bf%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRyBUUC5IQ00!5e0!3m2!1svi!2s!4v1552574275589" width="250" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+

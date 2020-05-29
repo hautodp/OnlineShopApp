@@ -63,6 +63,7 @@ export class ProductListComponent implements OnInit {
       console.log(this.userParams);
       this.products = res.result;
       this.pagination = res.pagination;
+      this.userParams.name = '';
       }, err => {
         this.alertity.error(err);
       });

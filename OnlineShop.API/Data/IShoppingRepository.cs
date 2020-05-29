@@ -19,6 +19,7 @@ namespace OnlineShop.API.Data
 		Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin);
 		Task<Product> GetProduct(int id);
 		Task<IEnumerable<Product>> GetAllProducts();
+		Task<IEnumerable<Product>> GetNewProducts();
 		// User
 		Task<PagedList<User>> GetUsers(UserParams userParams);
 		Task<User> GetUser(int id);

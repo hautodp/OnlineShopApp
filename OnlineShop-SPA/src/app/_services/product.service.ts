@@ -42,9 +42,9 @@ export class ProductService {
     );
   }
 
-  // getProducts(): Observable<Product[]>{
-  //   return this.http.get<Product[]>(this.baseUrl + 'products/');
-  // }
+  getNewProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl + 'products/GetNew');
+  }
 
   getProduct(idProduct): Observable<Product>{
     return this.http.get<Product>(this.baseUrl + 'products/' + idProduct);
