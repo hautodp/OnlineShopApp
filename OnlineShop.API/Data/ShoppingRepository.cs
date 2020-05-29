@@ -88,26 +88,26 @@ namespace OnlineShop.API.Data
 			return manufacturer;
 		}
 
-        //public async Task<IEnumerable<Manufacturer>> GetManufacturers()
-        //{
-        //	var manufacturers = await _context.Manufacturers.ToListAsync();
-        //	return manufacturers;
-        //}
+		//public async Task<IEnumerable<Manufacturer>> GetManufacturers()
+		//{
+		//	var manufacturers = await _context.Manufacturers.ToListAsync();
+		//	return manufacturers;
+		//}
 
-        public async Task<PagedList<Manufacturer>> GetManufacturers(ManufacturerParams manufacturerParams)
-        {
-            var manufacturers = _context.Manufacturers.AsQueryable();
+		public async Task<PagedList<Manufacturer>> GetManufacturers(ManufacturerParams manufacturerParams)
+		{
+			var manufacturers = _context.Manufacturers.AsQueryable();
 
 
-            if (!string.IsNullOrEmpty(manufacturerParams.Name) && !(manufacturerParams.Name == "null"))
-            {
-                manufacturers = manufacturers.Where(m => m.Name.Contains(manufacturerParams.Name));
-            }
+			if (!string.IsNullOrEmpty(manufacturerParams.Name) && !(manufacturerParams.Name == "null"))
+			{
+				manufacturers = manufacturers.Where(m => m.Name.Contains(manufacturerParams.Name));
+			}
 
-            return await PagedList<Manufacturer>.CreateAsync(manufacturers,manufacturerParams.PageNumber, manufacturerParams.PageSize);
-        }
+			return await PagedList<Manufacturer>.CreateAsync(manufacturers,manufacturerParams.PageNumber, manufacturerParams.PageSize);
+		}
 
-        public async Task<Product> FindProduct(int id)
+		public async Task<Product> FindProduct(int id)
 		{
 			var product=await _context.Products.FirstOrDefaultAsync(u=>u.IDProduct==id);
 			return product;
@@ -117,6 +117,19 @@ namespace OnlineShop.API.Data
 		{
 			var orders = await _context.Orders.ToListAsync();
 			return orders;
+		}
+
+		public async Task<PagedList<Order>> GetOrdersForAdmin(OrderParamsForAdmin orderParamsForAdmin)
+		{
+			var orders = _context.Orders.AsQueryable();
+
+
+			if (!string.IsNullOrEmpty(orderParamsForAdmin.Name) && !(orderParamsForAdmin.Name == "null"))
+			{
+				orders = orders.Where(m => m.Receiver.Contains(orderParamsForAdmin.Name));
+			}
+
+			return await PagedList<Order>.CreateAsync(orders, orderParamsForAdmin.PageNumber, orderParamsForAdmin.PageSize);
 		}
 
 		public async Task<Order> GetOrderById(int id)
@@ -185,27 +198,27 @@ namespace OnlineShop.API.Data
 			return await _context.Photos.Where(u => u.IDProduct == idProduct).FirstOrDefaultAsync(p => p.IsMain);
 		}
 
-        public async Task<PagedList<User>> GetUsers(UserParams userParams)
-        {
-            var users = _context.Users.AsQueryable();
+		public async Task<PagedList<User>> GetUsers(UserParams userParams)
+		{
+			var users = _context.Users.AsQueryable();
 
-            if (!string.IsNullOrEmpty(userParams.Name) && !(userParams.Name == "null"))
-            {
-                users = users.Where(u => u.Username.Contains(userParams.Name));
-            }
+			if (!string.IsNullOrEmpty(userParams.Name) && !(userParams.Name == "null"))
+			{
+				users = users.Where(u => u.Username.Contains(userParams.Name));
+			}
 
-            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
-        }
-        public async Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin)
-        {
-            var products = _context.Products.AsQueryable();
+			return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
+		}
+		public async Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin)
+		{
+			var products = _context.Products.AsQueryable();
 
-            if (!string.IsNullOrEmpty(productParamsForAdmin.Name) && !(productParamsForAdmin.Name == "null"))
-            {
-                products = products.Where(p => p.Name.Contains(productParamsForAdmin.Name));
-            }
+			if (!string.IsNullOrEmpty(productParamsForAdmin.Name) && !(productParamsForAdmin.Name == "null"))
+			{
+				products = products.Where(p => p.Name.Contains(productParamsForAdmin.Name));
+			}
 
-            return await PagedList<Product>.CreateAsync(products, productParamsForAdmin.PageNumber, productParamsForAdmin.PageSize);
-        }
-    }
+			return await PagedList<Product>.CreateAsync(products, productParamsForAdmin.PageNumber, productParamsForAdmin.PageSize);
+		}
+	}
 }

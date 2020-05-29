@@ -36,6 +36,16 @@ namespace OnlineShop.API.Controllers
 			return Ok(orders);
 		}
 
+		[HttpGet("ForAdmin")]
+		public async Task<IActionResult> GetOrdersForAdmin([FromQuery]OrderParamsForAdmin orderParamsForAdmin)
+		{
+			var orders = await _repo.GetOrdersForAdmin(orderParamsForAdmin);
+			Response.AddPagination(orders.CurrentPage, orders.PageSize,
+				orders.TotalCount, orders.TotalPages);
+
+			return Ok(orders);
+		}
+
 		//Get Orders by UserID
 		[HttpGet("order")]
 		public async Task<IActionResult> GetOrdersByUserID([FromQuery] OrderParams orderParams)

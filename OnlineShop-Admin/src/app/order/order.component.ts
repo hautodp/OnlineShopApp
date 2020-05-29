@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../_models/Order';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { OrdersService } from '../_services/orders.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { Pagination, PaginatedResult } from '../_models/Pagination';
 
 @Component({
   selector: 'app-order',
@@ -12,20 +13,38 @@ import { AlertifyService } from '../_services/alertify.service';
 export class OrderComponent implements OnInit {
   listOrders: Order[];
   totalOrders: number;
-  constructor(public route: Router, public orderService: OrdersService, public alert: AlertifyService) { }
+  pagination: Pagination;
+  orderParams: any = {};
+  constructor(public router: Router, public orderService: OrdersService, public alert: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadOrders();
+    this.route.data.subscribe(data => {
+      this.listOrders = data.orders.result;
+      this.pagination = data.orders.pagination;
+    });
+
+    this.orderParams.name = '';
   }
   navigateToHome(){
-    this.route.navigate(['admin/home']);
+    this.router.navigate(['admin/home']);
   }
   //get all orders
   loadOrders(){
-    this.orderService.GetAllOrders().subscribe( (data: Order[]) => { this.listOrders = data;},
-     error => this.alert.error(error));
+    this.orderService
+      .getOrdersForAdmin(this.pagination.currentPage, this.pagination.itemsPerPage, this.orderParams)
+      .subscribe((res: PaginatedResult<Order[]>) => {
+        this.listOrders = res.result;
+        this.pagination = res.pagination;
+        this.orderParams.name = '';
+    }, error => {
+      this.alert.error(error);
+    });
   }
 
+  pageChanged(event: any){
+    this.pagination.currentPage = event.page;
+    this.loadOrders();
+  }
   //update state of orders
   updateOrder(id: number, state: number){
       this.orderService.updateOrder(id, state).subscribe(next => {

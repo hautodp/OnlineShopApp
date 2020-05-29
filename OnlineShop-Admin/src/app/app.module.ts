@@ -37,6 +37,7 @@ import { UserService } from './_services/user.service';
 import { DetailedOrderComponent } from './order/detailedOrder/detailedOrder.component';
 import { OrdersService } from './_services/orders.service';import { UserListResolver } from './_resolvers/user-list.resolver';
 import { ProductListResolver } from './_resolvers/product-list.resolver';
+import { OrderListResolver } from './_resolvers/order-list.resolver';
 export function tokenGetter(){
   return localStorage.getItem('token');
 }
@@ -86,6 +87,7 @@ export function tokenGetter(){
     ProductListResolver,
     AlertifyService,
     ManufacturerEditResolver,
+    OrderListResolver,
     ProductService,
     ProductEditResolver,
     PreventUnsavedChanges,

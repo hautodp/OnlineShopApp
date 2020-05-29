@@ -9,10 +9,18 @@
 
   <!-- DataTables Example -->
   <div class="card mb-3">
-      <div class="card-header">
-          <i class="fas fa-table"></i>
-          Danh sách Hóa đơn
+    <div class="card-header row">
+      <div class="col-sm-6 mt-1">
+        <i class="fas fa-table"></i>
+          Danh sách hóa đơn
       </div>
+      <div class="col-sm-4">
+        <form class="form-inline mt-0 mt-md-0" #form="ngForm" (ngSubmit)="loadOrders()">
+          <input name="name" [(ngModel)]="orderParams.name" class="form-control-sm mr-sm-2" type="text" placeholder="Nhập tên người nhận" aria-label="Search">
+          <button class="btn btn-info btn-sm my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+      </div>
+    </div>
       <div class="card-body">
           <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" cellspacing="0">
@@ -56,8 +64,14 @@
                   </tfoot>
               </table>
               <br>
-              <div class="MenuPage">
-                  <!-- <div class="pagination-container"><ul class="pagination"><li class="active"><a>1</a></li><li><a href="/Admin/Phones?page=2">2</a></li><li><a href="/Admin/Phones?page=3">3</a></li><li><a href="/Admin/Phones?page=4">4</a></li><li class="PagedList-skipToNext"><a href="/Admin/Phones?page=2" rel="next">»</a></li></ul></div> -->
+              <div class="d-flex justify-content-center">
+                <pagination [boundaryLinks]="true"
+                  [totalItems]="pagination.totalItems"
+                  [itemsPerPage]="pagination.itemsPerPage"
+                  [(ngModel)]="pagination.currentPage"
+                  (pageChanged)="pageChanged($event)"
+                  previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+                </pagination>
               </div>
           </div>
       </div>

@@ -18,6 +18,7 @@ import { EditProductComponent } from 'src/app/product/edit-product/edit-product.
 import { UserListResolver } from 'src/app/_resolvers/user-list.resolver';
 import { ProductListResolver } from 'src/app/_resolvers/product-list.resolver';
 import { DetailedOrderComponent } from 'src/app/order/detailedOrder/detailedOrder.component';
+import { OrderListResolver } from 'src/app/_resolvers/order-list.resolver';
 const childRoutes: Routes = [
   {
     path: '',
@@ -30,11 +31,13 @@ const childRoutes: Routes = [
       { path: 'products/add', component: AddProductComponent},
       { path: 'products/:id', component: EditProductComponent,
           resolve: {product: ProductEditResolver}, canDeactivate: [PreventUnsavedChanges]},
-      { path: 'orders', component: OrderComponent},
+      { path: 'orders', component: OrderComponent,
+          resolve: {orders: OrderListResolver}},
       { path: 'orders/detail/:idOrder', component: DetailedOrderComponent},
       { path: 'customers', component: CustomerComponent},
       { path: 'manufacturers', component: ManufacturerComponent,
-        resolve: {manufacturers: ManufacturerListResolver}},      { path: 'manufacturers/add', component: AddManufacturerComponent},
+        resolve: {manufacturers: ManufacturerListResolver}},
+      { path: 'manufacturers/add', component: AddManufacturerComponent},
       { path: 'manufacturers/:id', component: UpdateManufacturerComponent, resolve: {manufacturer: ManufacturerEditResolver}},
       { path: '', component: HomeComponent}
     ]

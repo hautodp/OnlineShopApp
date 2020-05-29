@@ -37,6 +37,7 @@ export class ManufacturerComponent implements OnInit {
       .subscribe((res: PaginatedResult<Manufacturer[]>) => {
         this.manufacturers = res.result;
         this.pagination = res.pagination;
+        this.manufacturerParams.name = '';
     }, error => {
       this.toastrService.error(error);
     });
