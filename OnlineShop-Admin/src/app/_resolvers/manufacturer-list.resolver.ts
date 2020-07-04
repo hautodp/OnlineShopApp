@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class ManufacturerListResolver implements Resolve<Manufacturer[]>{
   pageNumber = 1;
-  pageSize = 2;
+  pageSize = 10;
 
   constructor(private manufacturerService: ManufacturerService,
               private router: Router, private toastrService: ToastrService){}

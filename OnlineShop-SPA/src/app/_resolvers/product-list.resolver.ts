@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class ProductListResolver implements Resolve<Product[]>{
   pageNumber = 1;
-  pageSize = 10;
+  pageSize = 12;
   constructor(private productSevice: ProductService,
               private router: Router, private alertify: AlertifyService){}
 

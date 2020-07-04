@@ -80,6 +80,7 @@ export class NavComponent implements OnInit {
   testSearch(){
 
     this.dataRoute.setData(this.nameSearch);
+    this.nameSearch = '';
     this.router.navigate(['/products']);
   }
 

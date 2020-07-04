@@ -42,6 +42,6 @@ getOrdersForAdmin(page?, itemsPerPage?, orderParams?): Observable<PaginatedResul
   );
 }
 updateOrder(id: number, state: number){
-  return this.http.put(this.baseUrl + '/' + id + '/' + state, state);
+  return this.http.put(this.baseUrl + 'payment/' + id + '/' + state, state);
 }
 }

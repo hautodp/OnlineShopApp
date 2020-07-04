@@ -42,7 +42,11 @@ namespace OnlineShop.API.Data
 			if (!string.IsNullOrEmpty(productParams.Name) && !(productParams.Name == "null"))
 			{
 				products = products.Where(pro => pro.Name.Contains(productParams.Name)); //.Contain() hoặc StartWith() or EndWith() ~ like '%12%'
-			}
+            }
+            //else
+            //{
+            //    products = _context.Products.Include(p => p.Photos).AsQueryable();
+            //}
 
 			//Filter products by Manufacturer
 
@@ -211,7 +215,7 @@ namespace OnlineShop.API.Data
 		}
 		public async Task<PagedList<Product>> GetProductsForAdmin(ProductParamsForAdmin productParamsForAdmin)
 		{
-			var products = _context.Products.AsQueryable();
+			var products = _context.Products.Include(p => p.Photos).AsQueryable();
 
 			if (!string.IsNullOrEmpty(productParamsForAdmin.Name) && !(productParamsForAdmin.Name == "null"))
 			{

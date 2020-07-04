@@ -43,9 +43,9 @@
                   <tr id="row_1" *ngFor="let product of products, let i=index">
                     <td>{{i+1}}</td>
                     <td>{{product.name}}</td>
-                    <td>{{product.price|currency:'VND'}}</td>
+                    <td style="color: red">{{product.price|currency:'VND'}}</td>
                     <td><img src="{{product.photoURL}}" alt="{{product.name}}" style="width: 20px;height: 16px;"></td>
-                    <td>{{product.quantity}}</td>
+                    <td style="color: blue">{{product.quantity}}</td>
                     <td>
                       <i (click)="deleteProduct(product.idProduct)" class="fas fa-trash-alt fa-sm text-danger"></i>
                       |

@@ -34,11 +34,13 @@ const childRoutes: Routes = [
       { path: 'orders', component: OrderComponent,
           resolve: {orders: OrderListResolver}},
       { path: 'orders/detail/:idOrder', component: DetailedOrderComponent},
-      { path: 'customers', component: CustomerComponent},
+      { path: 'customers', component: CustomerComponent,
+          resolve: {customers: UserListResolver}},
       { path: 'manufacturers', component: ManufacturerComponent,
         resolve: {manufacturers: ManufacturerListResolver}},
       { path: 'manufacturers/add', component: AddManufacturerComponent},
-      { path: 'manufacturers/:id', component: UpdateManufacturerComponent, resolve: {manufacturer: ManufacturerEditResolver}},
+      { path: 'manufacturers/:id', component: UpdateManufacturerComponent,
+         resolve: {manufacturer: ManufacturerEditResolver}},
       { path: '', component: HomeComponent}
     ]
   },

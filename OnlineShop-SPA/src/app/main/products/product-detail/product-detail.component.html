@@ -8,10 +8,10 @@
             <strong>{{product.name}}</strong>
           </div>
           <div>
-            <strong>{{product.price}}</strong>
+            <strong style="color: red">{{product.price|currency:'VND'}}</strong>
           </div>
           <div>
-            <p>Số lượng trong kho<strong></strong>{{product.price}}</p>
+            <p>Số lượng trong kho:  <strong>{{product.quantity}}</strong></p>
           </div>
           <div>
             <i>{{product.introduction}}</i>

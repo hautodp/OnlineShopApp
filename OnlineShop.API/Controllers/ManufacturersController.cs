@@ -54,7 +54,7 @@ namespace OnlineShop.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Manufacturer>> UpdateManufacturer(int id, Manufacturer manufacturer)
+        public async Task<IActionResult> UpdateManufacturer(int id, Manufacturer manufacturer)
         {
             if (id != manufacturer.IDManufacturer)
                 return BadRequest();

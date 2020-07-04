@@ -19,7 +19,7 @@ export class UpdateManufacturerComponent implements OnInit {
   manufacturer: Manufacturer;
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.manufacturer = data.manufacturer.result;
+      this.manufacturer = data.manufacturer;
     });
   }
 
@@ -36,6 +36,7 @@ export class UpdateManufacturerComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log(this.manufacturer);
     this.manufacturerService.updateManufacturer(this.manufacturer.idManufacturer, this.manufacturer).subscribe(next => {
       this.toastr.success('Cập nhập thông tin thành công');
       this.resetForm(this.editForm);
